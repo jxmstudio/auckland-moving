@@ -26,7 +26,7 @@ export interface ServicePillar {
   keywords: string[];
   metaTitle: string;
   metaDescription: string;
-  accent: "navy" | "amber" | "teal";
+  accent: "navy" | "brand" | "teal";
   icon: "home" | "piano" | "office";
 }
 
@@ -106,7 +106,7 @@ export const servicePillars: ServicePillar[] = [
     metaTitle: "Piano & Spa Pool Movers Auckland | Specialists",
     metaDescription:
       "Auckland's specialist piano and spa pool movers. Purpose-built trucks, proper gantries and skates, 25+ years in the trade. Pool tables and safes too.",
-    accent: "amber",
+    accent: "brand",
     icon: "piano",
   },
   {

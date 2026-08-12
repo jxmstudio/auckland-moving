@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import Link from "next/link";
 import { servicePillars } from "@/config/services";
 import { pillarIcons, CheckIcon, ArrowIcon } from "./Icons";
+import { sceneForService } from "./art/scenes";
 import { ButtonLink } from "./ui";
 import { cn } from "@/lib/cn";
 import { trackEvent } from "@/lib/analytics";
@@ -22,10 +23,10 @@ const accentClasses = {
     icon: "bg-navy-100 text-navy-800",
     check: "text-navy-600",
   },
-  amber: {
-    activeTab: "bg-amber-brand-600 text-white border-amber-brand-600",
-    icon: "bg-amber-brand-100 text-amber-brand-700",
-    check: "text-amber-brand-600",
+  brand: {
+    activeTab: "bg-brand-600 text-white border-brand-600",
+    icon: "bg-brand-100 text-brand-700",
+    check: "text-brand-600",
   },
   teal: {
     activeTab: "bg-teal-brand-600 text-white border-teal-brand-600",
@@ -40,6 +41,7 @@ export function ServiceTabs() {
   const pillar = servicePillars[active];
   const accent = accentClasses[pillar.accent];
   const Icon = pillarIcons[pillar.icon];
+  const PillarScene = sceneForService[pillar.slug];
 
   function select(index: number) {
     setActive(index);
@@ -114,6 +116,9 @@ export function ServiceTabs() {
       >
         <div className="grid gap-8 lg:grid-cols-5 lg:gap-12">
           <div className="lg:col-span-2">
+            <div className="mb-6 overflow-hidden rounded-xl border border-navy-100">
+              <PillarScene className="aspect-[4/3] w-full" />
+            </div>
             <span
               className={cn(
                 "mb-5 grid h-14 w-14 place-items-center rounded-xl",
@@ -147,7 +152,7 @@ export function ServiceTabs() {
               </ButtonLink>
               <Link
                 href={`/services/${pillar.slug}`}
-                className="inline-flex items-center gap-1.5 px-2 py-3 text-[15px] font-semibold text-navy-900 hover:text-amber-brand-600"
+                className="inline-flex items-center gap-1.5 px-2 py-3 text-[15px] font-semibold text-navy-900 hover:text-brand-600"
               >
                 Full details
                 <ArrowIcon className="h-4 w-4" />
@@ -156,7 +161,7 @@ export function ServiceTabs() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-navy-400">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-navy-500">
               What&apos;s included
             </p>
             <div className="grid gap-x-6 gap-y-4 sm:grid-cols-2">

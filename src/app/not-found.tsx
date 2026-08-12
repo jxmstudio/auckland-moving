@@ -23,7 +23,7 @@ export default function NotFound() {
           <Link
             key={pillar.slug}
             href={`/services/${pillar.slug}`}
-            className="font-semibold text-navy-700 underline underline-offset-4 hover:text-amber-brand-600"
+            className="font-semibold text-navy-700 underline underline-offset-4 hover:text-brand-600"
           >
             {pillar.title}
           </Link>

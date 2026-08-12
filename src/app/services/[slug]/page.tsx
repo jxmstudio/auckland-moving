@@ -13,6 +13,7 @@ import { TestimonialCard } from "@/components/Testimonials";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
 import { CheckIcon, PhoneIcon, ArrowIcon, pillarIcons } from "@/components/Icons";
+import { sceneForService } from "@/components/art/scenes";
 
 import { servicePillars, getPillar } from "@/config/services";
 import { site } from "@/config/site";
@@ -48,7 +49,7 @@ export async function generateMetadata({
 
 const accents = {
   navy: { chip: "bg-navy-100 text-navy-800", check: "text-navy-600" },
-  amber: { chip: "bg-amber-brand-100 text-amber-brand-700", check: "text-amber-brand-600" },
+  brand: { chip: "bg-brand-100 text-brand-700", check: "text-brand-600" },
   teal: { chip: "bg-teal-brand-500/15 text-teal-brand-700", check: "text-teal-brand-600" },
 } as const;
 
@@ -63,6 +64,7 @@ export default async function ServicePage({
 
   const accent = accents[pillar.accent];
   const Icon = pillarIcons[pillar.icon];
+  const PillarScene = sceneForService[pillar.slug];
   const faqs = faqsFor(pillar.slug);
   const pillarReviews = testimonialsFor(pillar.slug);
   const reviews = pillarReviews.length >= 2 ? pillarReviews : testimonials.slice(0, 3);
@@ -114,7 +116,7 @@ export default async function ServicePage({
             </div>
 
             <div className="rounded-2xl border border-navy-100 bg-white p-6 shadow-sm lg:sticky lg:top-28">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-brand-600">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-600">
                 Get a quote
               </p>
               <p className="mt-2 text-lg font-bold text-navy-950">
@@ -145,6 +147,12 @@ export default async function ServicePage({
           </div>
         </Container>
       </section>
+
+      <Container className="pt-12 sm:pt-16">
+        <div className="overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
+          <PillarScene className="aspect-[16/9] w-full lg:aspect-[2.6/1]" />
+        </div>
+      </Container>
 
       {/* ── What's included ──────────────────────────────────────────────── */}
       <Section>
@@ -206,7 +214,7 @@ export default async function ServicePage({
           </div>
           <Link
             href="/reviews"
-            className="mt-8 inline-flex items-center gap-2 font-semibold text-navy-900 hover:text-amber-brand-600"
+            className="mt-8 inline-flex items-center gap-2 font-semibold text-navy-900 hover:text-brand-600"
           >
             Read more reviews
             <ArrowIcon className="h-4 w-4" />
@@ -248,7 +256,7 @@ export default async function ServicePage({
                     <OtherIcon className="h-6 w-6" />
                   </span>
                   <span>
-                    <span className="block text-lg font-bold text-navy-950 group-hover:text-amber-brand-600">
+                    <span className="block text-lg font-bold text-navy-950 group-hover:text-brand-600">
                       {other.title}
                     </span>
                     <span className="mt-1 block text-sm leading-relaxed text-navy-600">

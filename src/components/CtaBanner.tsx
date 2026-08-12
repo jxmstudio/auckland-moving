@@ -32,7 +32,7 @@ export function CtaBanner({
 
           <div className="lg:justify-self-end">
             <div className="rounded-2xl bg-white p-6 shadow-xl sm:p-8">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-brand-600">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-600">
                 The quickest way
               </p>
               <p className="mt-2 text-xl font-bold text-navy-950">
@@ -48,7 +48,7 @@ export function CtaBanner({
 
               <div className="my-6 flex items-center gap-3">
                 <span className="h-px flex-1 bg-navy-100" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-navy-400">
+                <span className="text-xs font-semibold uppercase tracking-wider text-navy-500">
                   or
                 </span>
                 <span className="h-px flex-1 bg-navy-100" />

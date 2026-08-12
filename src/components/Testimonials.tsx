@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 
 function Stars({ className }: { className?: string }) {
   return (
-    <div className={cn("flex gap-0.5 text-amber-brand-500", className)} aria-hidden>
+    <div className={cn("flex gap-0.5 text-brand-500", className)} aria-hidden>
       {Array.from({ length: 5 }, (_, i) => (
         <StarIcon key={i} className="h-4 w-4" />
       ))}

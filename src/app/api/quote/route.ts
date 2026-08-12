@@ -76,10 +76,10 @@ function buildEmail(data: QuotePayload) {
   const subject = `${data.urgent ? "[URGENT] " : ""}Quote enquiry — ${serviceLabel} — ${data.name}`;
 
   const html = `
-    <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;max-width:600px;color:#0a1c33">
+    <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;max-width:600px;color:#04011e">
       ${
         data.urgent
-          ? `<p style="background:#fe7d11;color:#fff;padding:12px 16px;border-radius:8px;font-weight:700;margin:0 0 20px">
+          ? `<p style="background:#91c73e;color:#04011e;padding:12px 16px;border-radius:8px;font-weight:700;margin:0 0 20px">
                ⚡ Moving within ${site.urgentMoveHours} hours — call this customer back first.
              </p>`
           : ""

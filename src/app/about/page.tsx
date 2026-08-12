@@ -4,6 +4,7 @@ import { Container, Section, SectionHeading, JsonLd, Pill } from "@/components/u
 import { CtaBanner } from "@/components/CtaBanner";
 import { TrustStats } from "@/components/TrustStats";
 import { CheckIcon, ShieldIcon, TruckIcon } from "@/components/Icons";
+import { CrewScene } from "@/components/art/scenes";
 import { site, credentials, canPublishInsuranceFigures } from "@/config/site";
 import { breadcrumbSchema } from "@/config/seo";
 
@@ -62,7 +63,7 @@ export default function AboutPage() {
       <section className="bg-navy-900 text-white">
         <Container className="py-16 sm:py-20">
           <div className="max-w-3xl">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-amber-brand-400">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-400">
               About us
             </p>
             <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">
@@ -85,6 +86,12 @@ export default function AboutPage() {
       </section>
 
       <TrustStats />
+
+      <Container className="pt-14 sm:pt-16">
+        <div className="overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
+          <CrewScene className="aspect-[16/9] w-full lg:aspect-[2.8/1]" />
+        </div>
+      </Container>
 
       {/* ── Story ────────────────────────────────────────────────────────── */}
       <Section>
@@ -156,7 +163,7 @@ export default function AboutPage() {
                 key={value.title}
                 className="rounded-2xl border border-navy-100 bg-white p-7 shadow-sm"
               >
-                <CheckIcon className="h-7 w-7 text-amber-brand-600" />
+                <CheckIcon className="h-7 w-7 text-brand-600" />
                 <h3 className="mt-4 text-xl font-bold text-navy-950">
                   {value.title}
                 </h3>
@@ -183,9 +190,13 @@ export default function AboutPage() {
                 key={member.name}
                 className="overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-sm"
               >
-                {/* Placeholder until the team shoot is done. */}
-                <div className="photo-pending grid aspect-[4/3] place-items-center">
-                  <span className="font-display text-4xl font-extrabold text-white/30">
+                {/*
+                  Initials on the brand navy until the team shoot is done.
+                  Deliberately not a stock headshot — it would be a photo of
+                  someone who doesn't work here.
+                */}
+                <div className="grid aspect-[4/3] place-items-center bg-navy-900">
+                  <span className="font-display text-4xl font-extrabold text-brand-500">
                     {member.name
                       .split(" ")
                       .map((part) => part[0])
@@ -196,7 +207,7 @@ export default function AboutPage() {
                   <h3 className="text-lg font-bold text-navy-950">
                     {member.name}
                   </h3>
-                  <p className="mt-0.5 text-sm font-semibold text-amber-brand-600">
+                  <p className="mt-0.5 text-sm font-semibold text-brand-600">
                     {member.role}
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-navy-600">
@@ -214,7 +225,7 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-10 md:grid-cols-2">
             <div className="rounded-2xl border border-navy-700 bg-navy-800/50 p-7">
-              <TruckIcon className="h-8 w-8 text-amber-brand-400" />
+              <TruckIcon className="h-8 w-8 text-brand-400" />
               <h2 className="mt-4 text-2xl font-bold">Industry membership</h2>
               {credentials.memberships
                 .filter((m) => m.confirmed)
@@ -230,7 +241,7 @@ export default function AboutPage() {
             </div>
 
             <div className="rounded-2xl border border-navy-700 bg-navy-800/50 p-7">
-              <ShieldIcon className="h-8 w-8 text-amber-brand-400" />
+              <ShieldIcon className="h-8 w-8 text-brand-400" />
               <h2 className="mt-4 text-2xl font-bold">Insurance</h2>
               <p className="mt-3 leading-relaxed text-navy-100">
                 {canPublishInsuranceFigures ? (

@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { Container, Section, JsonLd } from "@/components/ui";
 import { QuoteForm } from "@/components/QuoteForm";
 import { PhoneIcon, MailIcon, ClockIcon, PinIcon, ShieldIcon } from "@/components/Icons";
+import { PackingScene } from "@/components/art/scenes";
 import { site, credentials, canPublishInsuranceFigures } from "@/config/site";
 import { breadcrumbSchema } from "@/config/seo";
 
@@ -20,7 +21,7 @@ export default function ContactPage() {
       <section className="border-b border-navy-100 bg-navy-50">
         <Container className="py-12 sm:py-16">
           <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-amber-brand-600">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
               Get in touch
             </p>
             <h1 className="text-4xl font-extrabold text-navy-950 sm:text-5xl">
@@ -53,8 +54,8 @@ export default function ContactPage() {
             {/* Sidebar */}
             <aside className="space-y-6">
               {/* Urgent path — deliberately the most visually prominent card. */}
-              <div className="rounded-2xl border-2 border-amber-brand-400 bg-amber-brand-50 p-6">
-                <div className="flex items-center gap-2 text-amber-brand-800">
+              <div className="rounded-2xl border-2 border-brand-400 bg-brand-50 p-6">
+                <div className="flex items-center gap-2 text-brand-800">
                   <ClockIcon className="h-5 w-5" />
                   <p className="text-xs font-bold uppercase tracking-[0.16em]">
                     Moving in a hurry?
@@ -82,7 +83,7 @@ export default function ContactPage() {
                 </h2>
                 <dl className="mt-4 space-y-4 text-sm">
                   <div className="flex items-start gap-3">
-                    <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand-600" />
+                    <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
                     <div>
                       <dt className="font-semibold text-navy-900">Email</dt>
                       <dd>
@@ -98,7 +99,7 @@ export default function ContactPage() {
 
                   {Object.values(site.phones).map((phone) => (
                     <div key={phone.tel} className="flex items-start gap-3">
-                      <PhoneIcon className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand-600" />
+                      <PhoneIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
                       <div>
                         <dt className="font-semibold text-navy-900">
                           {phone.name}
@@ -119,7 +120,7 @@ export default function ContactPage() {
                   ))}
 
                   <div className="flex items-start gap-3">
-                    <ClockIcon className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand-600" />
+                    <ClockIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
                     <div>
                       <dt className="font-semibold text-navy-900">Hours</dt>
                       <dd className="text-navy-600">
@@ -131,7 +132,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand-600" />
+                    <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
                     <div>
                       <dt className="font-semibold text-navy-900">Depots</dt>
                       <dd className="text-navy-600">
@@ -146,7 +147,7 @@ export default function ContactPage() {
               </div>
 
               <div className="rounded-2xl bg-navy-900 p-6 text-white">
-                <ShieldIcon className="h-7 w-7 text-amber-brand-400" />
+                <ShieldIcon className="h-7 w-7 text-brand-400" />
                 <h2 className="mt-3 text-lg font-bold">You&apos;re covered</h2>
                 <p className="mt-2 text-sm leading-relaxed text-navy-100">
                   {canPublishInsuranceFigures
@@ -164,6 +165,10 @@ export default function ContactPage() {
                       <span className="font-semibold text-white">{m.name}</span>
                     </p>
                   ))}
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
+                <PackingScene className="aspect-[4/3] w-full" />
               </div>
             </aside>
           </div>

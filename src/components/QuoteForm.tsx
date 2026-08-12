@@ -142,7 +142,7 @@ export function QuoteForm() {
           you with a written quote, usually within one business day.
         </p>
         {isUrgent && (
-          <div className="mx-auto mt-6 max-w-md rounded-xl border-2 border-amber-brand-300 bg-white p-5">
+          <div className="mx-auto mt-6 max-w-md rounded-xl border-2 border-brand-300 bg-white p-5">
             <p className="font-semibold text-navy-950">
               You&apos;re moving in under {site.urgentMoveHours} hours.
             </p>
@@ -152,7 +152,7 @@ export function QuoteForm() {
             <a
               href={`tel:${site.phones.sales.tel}`}
               onClick={() => trackEvent("call_click", { context: "urgent_success" })}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-amber-brand-500 px-5 py-3 font-semibold text-white hover:bg-amber-brand-600"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-500 px-5 py-3 font-semibold text-navy-950 hover:bg-brand-400"
             >
               <PhoneIcon className="h-4 w-4" />
               {site.phones.sales.label}
@@ -206,7 +206,7 @@ export function QuoteForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="name">
-            Your name <span className="text-amber-brand-600">*</span>
+            Your name <span className="text-brand-600">*</span>
           </label>
           <input
             id="name"
@@ -220,7 +220,7 @@ export function QuoteForm() {
 
         <div>
           <label className={labelClass} htmlFor="phone">
-            Phone <span className="text-amber-brand-600">*</span>
+            Phone <span className="text-brand-600">*</span>
           </label>
           <input
             id="phone"
@@ -235,7 +235,7 @@ export function QuoteForm() {
 
         <div className="sm:col-span-2">
           <label className={labelClass} htmlFor="email">
-            Email <span className="text-amber-brand-600">*</span>
+            Email <span className="text-brand-600">*</span>
           </label>
           <input
             id="email"
@@ -308,7 +308,7 @@ export function QuoteForm() {
         selling the phone.
       */}
       {isUrgent && (
-        <div className="mt-5 rounded-xl border-2 border-amber-brand-400 bg-amber-brand-50 p-5">
+        <div className="mt-5 rounded-xl border-2 border-brand-400 bg-brand-50 p-5">
           <p className="font-bold text-navy-950">
             That&apos;s within {site.urgentMoveHours} hours — please call us.
           </p>
@@ -320,7 +320,7 @@ export function QuoteForm() {
           <a
             href={`tel:${site.phones.sales.tel}`}
             onClick={() => trackEvent("call_click", { context: "urgent_form" })}
-            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-amber-brand-500 px-5 py-3 font-semibold text-white hover:bg-amber-brand-600"
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-500 px-5 py-3 font-semibold text-navy-950 hover:bg-brand-400"
           >
             <PhoneIcon className="h-4 w-4" />
             Call {site.phones.sales.label}
@@ -339,7 +339,7 @@ export function QuoteForm() {
                 className={cn(
                   "cursor-pointer rounded-full border-2 px-4 py-2 text-sm font-medium transition-all",
                   isOn
-                    ? "border-amber-brand-500 bg-amber-brand-500 text-white"
+                    ? "border-brand-500 bg-brand-500 text-navy-950"
                     : "border-navy-200 bg-white text-navy-700 hover:border-navy-400",
                 )}
               >

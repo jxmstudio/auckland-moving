@@ -53,7 +53,7 @@ export function Header() {
           <div className="flex items-center gap-5">
             <a
               href={`tel:${site.phones.sales.tel}`}
-              className="flex items-center gap-1.5 font-semibold hover:text-amber-brand-300"
+              className="flex items-center gap-1.5 font-semibold hover:text-brand-300"
             >
               <PhoneIcon className="h-3.5 w-3.5" />
               {site.phones.sales.label}
@@ -86,8 +86,8 @@ export function Header() {
                 className={cn(
                   "flex items-center gap-1 rounded-md px-3 py-2 text-[15px] font-medium transition-colors",
                   pathname.startsWith("/services")
-                    ? "text-amber-brand-600"
-                    : "text-navy-800 hover:text-amber-brand-600",
+                    ? "text-brand-600"
+                    : "text-navy-800 hover:text-brand-600",
                 )}
               >
                 Services
@@ -128,8 +128,8 @@ export function Header() {
                 className={cn(
                   "rounded-md px-3 py-2 text-[15px] font-medium transition-colors",
                   pathname === link.href
-                    ? "text-amber-brand-600"
-                    : "text-navy-800 hover:text-amber-brand-600",
+                    ? "text-brand-600"
+                    : "text-navy-800 hover:text-brand-600",
                 )}
               >
                 {link.label}
@@ -186,7 +186,7 @@ export function Header() {
           className="max-h-[calc(100vh-72px)] overflow-y-auto border-t border-navy-100 bg-white lg:hidden"
         >
           <Container className="py-5">
-            <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-amber-brand-600">
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-600">
               Services
             </p>
             <div className="mb-5 space-y-1">

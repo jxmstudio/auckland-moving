@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Container, Section, SectionHeading, JsonLd } from "@/components/ui";
 import { CtaBanner } from "@/components/CtaBanner";
 import { PinIcon, TruckIcon } from "@/components/Icons";
+import { CoverageScene } from "@/components/art/scenes";
 import { aucklandRegions, outOfTown, outOfTownNote } from "@/config/areas";
 import { site } from "@/config/site";
 import { breadcrumbSchema } from "@/config/seo";
@@ -20,7 +21,7 @@ export default function AreasPage() {
       <section className="border-b border-navy-100 bg-navy-50">
         <Container className="py-14 sm:py-16">
           <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-amber-brand-600">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
               Areas we cover
             </p>
             <h1 className="text-4xl font-extrabold text-navy-950 sm:text-5xl">
@@ -38,6 +39,9 @@ export default function AreasPage() {
       {/* ── Depots ───────────────────────────────────────────────────────── */}
       <Section className="py-12 sm:py-14">
         <Container>
+          <div className="mb-6 overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
+            <CoverageScene className="aspect-[16/9] w-full lg:aspect-[2.6/1]" />
+          </div>
           <div className="grid gap-6 md:grid-cols-2">
             {site.depots.map((depot) => (
               <div
@@ -45,8 +49,8 @@ export default function AreasPage() {
                 className="rounded-2xl border-2 border-navy-900 bg-navy-900 p-7 text-white"
               >
                 <div className="flex items-center gap-2.5">
-                  <PinIcon className="h-6 w-6 text-amber-brand-400" />
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-amber-brand-400">
+                  <PinIcon className="h-6 w-6 text-brand-400" />
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-400">
                     Depot
                   </p>
                 </div>
@@ -75,7 +79,7 @@ export default function AreasPage() {
                 <h3 className="flex items-center gap-2 text-lg font-bold text-navy-950">
                   {region.name}
                   {region.depot && (
-                    <span className="rounded bg-amber-brand-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-brand-700">
+                    <span className="rounded bg-brand-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-700">
                       Depot
                     </span>
                   )}
@@ -105,7 +109,7 @@ export default function AreasPage() {
               <p className="mt-5 leading-relaxed text-navy-700">{outOfTownNote}</p>
             </div>
             <div className="rounded-2xl border border-navy-100 bg-navy-50 p-7">
-              <TruckIcon className="h-8 w-8 text-amber-brand-600" />
+              <TruckIcon className="h-8 w-8 text-brand-600" />
               <h3 className="mt-4 text-lg font-bold text-navy-950">
                 Relocations we run regularly
               </h3>

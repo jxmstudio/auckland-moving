@@ -27,14 +27,14 @@ export function Footer() {
                 href={`mailto:${site.email}`}
                 className="flex items-start gap-2.5 hover:text-white"
               >
-                <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-amber-brand-400" />
+                <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
                 <span>{site.email}</span>
               </a>
               <a
                 href={`tel:${site.phones.sales.tel}`}
                 className="flex items-start gap-2.5 hover:text-white"
               >
-                <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-amber-brand-400" />
+                <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
                 <span>
                   <span className="font-semibold text-white">
                     {site.phones.sales.label}
@@ -78,7 +78,7 @@ export function Footer() {
                 <li key={pillar.slug}>
                   <Link
                     href={`/services/${pillar.slug}`}
-                    className="font-semibold text-white hover:text-amber-brand-400"
+                    className="font-semibold text-white hover:text-brand-400"
                   >
                     {pillar.title}
                   </Link>
@@ -102,7 +102,7 @@ export function Footer() {
                 <li key={region.name} className="flex items-center gap-2">
                   <span>{region.name}</span>
                   {region.depot && (
-                    <span className="rounded bg-amber-brand-500/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-brand-300">
+                    <span className="rounded bg-brand-500/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-300">
                       Depot
                     </span>
                   )}
@@ -111,7 +111,7 @@ export function Footer() {
             </ul>
             <Link
               href="/areas"
-              className="mt-4 inline-block text-sm font-semibold text-amber-brand-400 hover:text-amber-brand-300"
+              className="mt-4 inline-block text-sm font-semibold text-brand-400 hover:text-brand-300"
             >
               Out-of-town relocations →
             </Link>
@@ -184,7 +184,7 @@ export function Footer() {
             The single visible reference to the former trading name — kept for
             customers who knew Graeme under it. See src/config/seo.ts.
           */}
-          <p className="text-navy-400">
+          <p className="text-navy-300">
             Formerly trading as {site.formerName}.
           </p>
         </div>

@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/Testimonials";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
 import { CheckIcon, PhoneIcon, ShieldIcon, PinIcon, ArrowIcon, TruckIcon, BoxIcon } from "@/components/Icons";
+import { LoadingScene, CrewScene } from "@/components/art/scenes";
 
 import { site, credentials } from "@/config/site";
 import { faqsFor } from "@/config/faqs";
@@ -69,7 +70,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-navy-900 text-white">
         <div
           aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(254,125,17,0.18),transparent_55%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(145,199,62,0.20),transparent_55%)]"
         />
         <Container className="relative py-16 sm:py-20 lg:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -121,22 +122,21 @@ export default function HomePage() {
 
             {/*
               Hero visual. Team photography is being shot once the new uniforms
-              arrive; until then this is a deliberate graphic panel rather than
-              a stock photo or an empty box. Swap in the shoot when it lands.
+              arrive; until then this is brand illustration rather than a stock
+              photo. Swap in the shoot when it lands — the frame stays as is.
             */}
             <div className="relative">
-              <div className="photo-pending aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
-                <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center">
-                  <TruckIcon className="h-20 w-20 text-white/25" />
-                  <p className="max-w-xs text-sm leading-relaxed text-white/40">
-                    Team photography coming soon — new uniforms are on order.
-                  </p>
-                </div>
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
+                <LoadingScene className="h-full w-full" />
               </div>
 
-              <div className="absolute -bottom-5 -left-4 max-w-[15rem] rounded-xl bg-white p-4 shadow-xl sm:-left-6">
+              {/*
+                Sits over the bottom-left of the illustration, where the villa
+                is, rather than over the truck and crew in the middle.
+              */}
+              <div className="absolute -bottom-6 -left-4 max-w-[13.5rem] rounded-xl bg-white p-4 shadow-xl sm:-left-8">
                 <div className="flex items-center gap-2.5">
-                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-amber-brand-100 text-amber-brand-700">
+                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-100 text-brand-700">
                     <PinIcon className="h-4 w-4" />
                   </span>
                   <div>
@@ -201,6 +201,10 @@ export default function HomePage() {
       {/* ── The family story ─────────────────────────────────────────────── */}
       <Section>
         <Container>
+          <div className="mb-14 overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
+            <CrewScene className="aspect-[16/9] w-full lg:aspect-[2.8/1]" />
+          </div>
+
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <SectionHeading
@@ -229,7 +233,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/about"
-                className="mt-7 inline-flex items-center gap-2 font-semibold text-navy-900 hover:text-amber-brand-600"
+                className="mt-7 inline-flex items-center gap-2 font-semibold text-navy-900 hover:text-brand-600"
               >
                 More about the family and the team
                 <ArrowIcon className="h-4 w-4" />
@@ -270,7 +274,7 @@ export default function HomePage() {
                     key={depot.region}
                     className="flex items-start gap-3 rounded-xl border border-navy-700 bg-navy-800/60 p-4"
                   >
-                    <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand-400" />
+                    <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
                     <div>
                       <p className="font-bold text-white">
                         {depot.region} depot
@@ -289,7 +293,7 @@ export default function HomePage() {
                     <h3 className="flex items-center gap-2 font-bold text-white">
                       {region.name}
                       {region.depot && (
-                        <span className="rounded bg-amber-brand-500/20 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-brand-300">
+                        <span className="rounded bg-brand-500/20 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-300">
                           Depot
                         </span>
                       )}
@@ -302,7 +306,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-8 rounded-xl border border-navy-700 bg-navy-800/60 p-5">
-                <p className="text-sm font-bold uppercase tracking-wider text-amber-brand-400">
+                <p className="text-sm font-bold uppercase tracking-wider text-brand-400">
                   Out-of-town relocations
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-navy-100">
@@ -310,7 +314,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/areas"
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-amber-brand-300"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-brand-300"
                 >
                   See everywhere we cover
                   <ArrowIcon className="h-4 w-4" />

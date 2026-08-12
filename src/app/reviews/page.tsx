@@ -20,7 +20,7 @@ export default function ReviewsPage() {
       <section className="border-b border-navy-100 bg-navy-50">
         <Container className="py-14 sm:py-16">
           <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-amber-brand-600">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
               Reviews &amp; testimonials
             </p>
             <h1 className="text-4xl font-extrabold text-navy-950 sm:text-5xl">
@@ -37,7 +37,7 @@ export default function ReviewsPage() {
               {credentials.googleRating}
             </span>
             <span>
-              <span className="flex gap-0.5 text-amber-brand-500" aria-hidden>
+              <span className="flex gap-0.5 text-brand-500" aria-hidden>
                 {Array.from({ length: 5 }, (_, i) => (
                   <StarIcon key={i} className="h-5 w-5" />
                 ))}

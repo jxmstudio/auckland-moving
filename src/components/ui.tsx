@@ -45,16 +45,16 @@ export function Section({
 
 export function Eyebrow({
   children,
-  tone = "amber",
+  tone = "brand",
 }: {
   children: ReactNode;
-  tone?: "amber" | "light";
+  tone?: "brand" | "light";
 }) {
   return (
     <p
       className={cn(
         "mb-3 text-xs font-bold uppercase tracking-[0.2em]",
-        tone === "amber" ? "text-amber-brand-600" : "text-navy-200",
+        tone === "brand" ? "text-brand-600" : "text-navy-200",
       )}
     >
       {children}
@@ -85,7 +85,7 @@ export function SectionHeading({
         className,
       )}
     >
-      {eyebrow && <Eyebrow tone={tone === "light" ? "light" : "amber"}>{eyebrow}</Eyebrow>}
+      {eyebrow && <Eyebrow tone={tone === "light" ? "light" : "brand"}>{eyebrow}</Eyebrow>}
       <h2
         className={cn(
           "text-3xl font-extrabold sm:text-4xl",
@@ -118,8 +118,13 @@ const buttonStyles = {
     lg: "px-7 py-4 text-base",
   },
   variant: {
+    /*
+      The logo green is bright enough that white text on it fails contrast, so
+      the primary button is navy-on-green and lightens on hover rather than
+      darkening. That also keeps it looking like the logo.
+    */
     primary:
-      "bg-amber-brand-500 text-white shadow-sm hover:bg-amber-brand-600 hover:shadow-md",
+      "bg-brand-500 text-navy-950 shadow-sm hover:bg-brand-400 hover:shadow-md",
     navy: "bg-navy-900 text-white shadow-sm hover:bg-navy-800 hover:shadow-md",
     outline:
       "border-2 border-navy-200 bg-white text-navy-900 hover:border-navy-900 hover:bg-navy-50",
@@ -194,13 +199,13 @@ export function Card({
 
 export function Pill({
   children,
-  tone = "amber",
+  tone = "brand",
 }: {
   children: ReactNode;
-  tone?: "amber" | "navy" | "light";
+  tone?: "brand" | "navy" | "light";
 }) {
   const tones = {
-    amber: "bg-amber-brand-50 text-amber-brand-800 ring-amber-brand-200",
+    brand: "bg-brand-50 text-brand-800 ring-brand-200",
     navy: "bg-navy-50 text-navy-800 ring-navy-200",
     light: "bg-white/10 text-white ring-white/25",
   };

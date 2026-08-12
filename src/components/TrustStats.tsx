@@ -36,7 +36,7 @@ export function TrustStats() {
         <dl className="grid grid-cols-2 gap-6 lg:grid-cols-4">
           {stats.map(({ value, label, detail, Icon }) => (
             <div key={label} className="flex items-start gap-3.5">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-white text-amber-brand-600 shadow-sm">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-white text-brand-600 shadow-sm">
                 <Icon className="h-5 w-5" />
               </span>
               <div>

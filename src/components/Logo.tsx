@@ -1,18 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/config/site";
 import { cn } from "@/lib/cn";
 
-/**
- * Interim wordmark. The designed logo lands early next week.
- *
- * TO SWAP IN THE REAL LOGO:
- *   1. Drop the file at /public/logo.svg (and /public/logo-white.svg for the
- *      dark footer/header variant).
- *   2. Set USE_IMAGE_LOGO to true below.
- * No other file needs to change.
- */
-const USE_IMAGE_LOGO = false;
+import logoTile from "../../public/brand/logo-tile.png";
+import logoWordmark from "../../public/brand/logo-wordmark.png";
 
+/**
+ * The supplied logo is green type on a near-black indigo field, so it gets two
+ * treatments rather than one:
+ *
+ *   variant="dark"  — for light backgrounds. The artwork is kept intact as a
+ *                     rounded navy plate, which is how the concept was drawn.
+ *   variant="light" — for dark backgrounds. The navy is keyed out so the green
+ *                     type sits directly on the section behind it.
+ *
+ * Both files are derived from /public/brand/logo-square.jpg by .brandtool.mjs.
+ */
 export function Logo({
   variant = "dark",
   className,
@@ -20,52 +24,30 @@ export function Logo({
   variant?: "dark" | "light";
   className?: string;
 }) {
-  const light = variant === "light";
-
-  if (USE_IMAGE_LOGO) {
+  /*
+    `sizes` matters here: the artwork is ~1000px wide but never renders above
+    about 140px, and without a hint next/image serves the full-width variant.
+    The light variant lives in the footer, so it is not preloaded.
+  */
+  if (variant === "light") {
     return (
-      /* eslint-disable-next-line @next/next/no-img-element */
-      <img
-        src={light ? "/logo-white.svg" : "/logo.svg"}
+      <Image
+        src={logoWordmark}
         alt={site.legalName}
+        sizes="130px"
         className={cn("h-11 w-auto", className)}
       />
     );
   }
 
   return (
-    <span className={cn("flex items-center gap-2.5", className)}>
-      {/* Monogram — a stylised truck box, replaced by the real mark later. */}
-      <span
-        aria-hidden
-        className={cn(
-          "grid h-10 w-10 shrink-0 place-items-center rounded-lg font-display text-[15px] font-black tracking-tight",
-          light
-            ? "bg-white text-navy-900"
-            : "bg-navy-900 text-white",
-        )}
-      >
-        AM
-      </span>
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "font-display text-[17px] font-extrabold tracking-tight",
-            light ? "text-white" : "text-navy-900",
-          )}
-        >
-          Auckland Moving
-        </span>
-        <span
-          className={cn(
-            "mt-1 text-[10px] font-semibold uppercase tracking-[0.22em]",
-            light ? "text-navy-200" : "text-amber-brand-600",
-          )}
-        >
-          Professionals
-        </span>
-      </span>
-    </span>
+    <Image
+      src={logoTile}
+      alt={site.legalName}
+      priority
+      sizes="140px"
+      className={cn("h-12 w-auto rounded-lg sm:h-14", className)}
+    />
   );
 }
 

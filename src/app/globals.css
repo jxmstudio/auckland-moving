@@ -1,34 +1,48 @@
 @import "tailwindcss";
 
 /*
-  Brand palette. The existing Auckland Moving brand is blue, so navy anchors the
-  system; amber is the action colour (trucks, hi-vis, "do this next"). When the
-  new logo arrives, adjust --brand-* here and the whole site follows.
+  Brand palette, taken from the logo artwork in /public/brand.
+
+  Two colours are sampled directly from that file and must not drift:
+    --color-brand-500  #91c73e — the logo green
+    --color-navy-950   #04011e — the logo background
+
+  Everything else is a tint or shade built around those two. The green is the
+  action colour ("do this next"); the near-black indigo anchors the system and
+  carries every dark section. The green is bright, so it never carries white
+  text — dark navy sits on green, and green sits on dark navy.
 */
 @theme {
-  --color-navy-50: #f0f5fb;
-  --color-navy-100: #dde8f5;
-  --color-navy-200: #c2d6ee;
-  --color-navy-300: #97bbe2;
-  --color-navy-400: #6598d2;
-  --color-navy-500: #437abd;
-  --color-navy-600: #3162a1;
-  --color-navy-700: #2a4f83;
-  --color-navy-800: #27446d;
-  --color-navy-900: #0f2a4a;
-  --color-navy-950: #0a1c33;
+  /* Ink. 950 is the exact logo background; 900 is lifted just enough that
+     panels and borders can be read against a full-bleed dark section. */
+  --color-navy-50: #f6f6fb;
+  --color-navy-100: #e9e9f4;
+  --color-navy-200: #d2d2e6;
+  --color-navy-300: #adadcd;
+  --color-navy-400: #8181ad;
+  --color-navy-500: #626292;
+  --color-navy-600: #4d4d78;
+  --color-navy-700: #3f3f61;
+  --color-navy-800: #2c2c47;
+  --color-navy-900: #14122f;
+  --color-navy-950: #04011e;
 
-  --color-amber-brand-50: #fff8ed;
-  --color-amber-brand-100: #ffefd4;
-  --color-amber-brand-200: #ffdaa8;
-  --color-amber-brand-300: #ffbf70;
-  --color-amber-brand-400: #ff9a37;
-  --color-amber-brand-500: #fe7d11;
-  --color-amber-brand-600: #ef6107;
-  --color-amber-brand-700: #c64708;
-  --color-amber-brand-800: #9d380f;
-  --color-amber-brand-900: #7e3010;
+  /* Brand green. 500 is the exact logo green — used as a surface, not as text
+     on white. 600 and darker are the text-safe shades (>=4.5:1 on white). */
+  --color-brand-50: #f5faec;
+  --color-brand-100: #e8f4d3;
+  --color-brand-200: #d3eaae;
+  --color-brand-300: #b7dc7e;
+  --color-brand-400: #9fd05a;
+  --color-brand-500: #91c73e;
+  --color-brand-600: #55791f;
+  --color-brand-700: #446017;
+  --color-brand-800: #3a5117;
+  --color-brand-900: #2f4215;
+  --color-brand-950: #1c2a08;
 
+  /* Third accent, for the commercial pillar only — keeps the three service
+     tabs distinguishable without inventing a second brand colour. */
   --color-teal-brand-500: #0d9488;
   --color-teal-brand-600: #0f766e;
   --color-teal-brand-700: #115e59;
@@ -69,23 +83,7 @@ h1, h2, h3, h4 {
 
 /* Visible focus for keyboard users, invisible for mouse users. */
 :focus-visible {
-  outline: 3px solid var(--color-amber-brand-500);
+  outline: 3px solid var(--color-brand-600);
   outline-offset: 2px;
   border-radius: 2px;
-}
-
-/*
-  Placeholder treatment for the team photography that's still being shot.
-  Deliberately looks like an intentional design element rather than a broken
-  image, so the site can go live before the uniforms and photos are ready.
-*/
-.photo-pending {
-  background-color: var(--color-navy-800);
-  background-image:
-    linear-gradient(135deg, rgba(255,255,255,0.05) 25%, transparent 25%),
-    linear-gradient(225deg, rgba(255,255,255,0.05) 25%, transparent 25%),
-    linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
-    linear-gradient(315deg, rgba(255,255,255,0.05) 25%, transparent 25%);
-  background-size: 28px 28px;
-  background-position: 0 0, 14px 0, 14px -14px, 0 14px;
 }
