@@ -25,7 +25,12 @@ export const site = {
    */
   formerName: "Suburban Metro Relocations",
 
-  email: "sales@aucklandmoving.co.nz",
+  /**
+   * Both the address quote enquiries are delivered to and the one shown to
+   * customers — header, footer, contact, reviews, the quote form's success
+   * message, and the Organization schema all read this one value.
+   */
+  email: "info@aucklandmoving.co.nz",
 
   phones: {
     /** Primary CTA everywhere — sales / office. */

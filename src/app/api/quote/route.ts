@@ -5,16 +5,17 @@ import { getPillar } from "@/config/services";
 /**
  * Quote enquiry handler.
  *
- * Two destinations, deliberately independent:
+ * Three destinations, deliberately independent:
  *
- *   1. EMAIL to sales@ — the actual lead channel. If this fails, the customer
+ *   1. EMAIL to site.email — the actual lead channel. If this fails, the customer
  *      is told so and shown the phone number, because a silently dropped lead
  *      is a lost job.
  *   2. GOOGLE SHEET — a running lead log tagged by move type, so the
  *      residential / commercial split is readable at a glance. Best-effort:
  *      a broken sheet must never stop an email going out.
+ *   3. JXM FORMS — the shared forms backend. Also best-effort.
  *
- * Both are configured by env vars. With neither set (local dev), submissions
+ * Only the first two need env vars. With neither set (local dev), submissions
  * are logged to the console and the form still reports success.
  */
 
@@ -201,6 +202,70 @@ async function appendToSheet(data: QuotePayload) {
   }
 }
 
+/**
+ * Third channel — the shared JXM Forms backend.
+ *
+ * Posted from the server rather than straight from the browser, so the form
+ * keeps this route's validation, honeypot and urgent-move flagging instead of
+ * bypassing them. That also means the key travels in the `x-api-key` header
+ * and never reaches the page source.
+ *
+ * The key is public by design, so the literal below is a working default and
+ * no deployment step is needed; set JXM_FORMS_API_KEY to rotate it without a
+ * code change. Never throws, for the same reason as the sheet.
+ */
+const JXM_FORMS_ENDPOINT =
+  "https://jxm-forms.vercel.app/api/submit/auckland-moving";
+const JXM_FORMS_DEFAULT_KEY = "CAnjXRnnEKN0-K2CzbzrqF_tLDYvhjHZ";
+
+async function forwardToJxmForms(data: QuotePayload) {
+  const pillar = getPillar(data.service);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+
+  try {
+    const res = await fetch(JXM_FORMS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": process.env.JXM_FORMS_API_KEY || JXM_FORMS_DEFAULT_KEY,
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        name: data.name,
+        /* Their side uses this as the Reply-To. */
+        email: data.email,
+        phone: data.phone,
+        moveType: pillar?.title ?? data.service,
+        propertySize: data.propertySize ?? "",
+        moveDate: data.moveDate ?? "",
+        movingFrom: data.movingFrom ?? "",
+        movingTo: data.movingTo ?? "",
+        extras: data.extras?.join(", ") ?? "",
+        message: data.message ?? "",
+        urgent: data.urgent ? "YES" : "",
+        sourcePage: data.pageUrl ?? "",
+        /* Their bot trap. Always empty here — our own honeypot ran above. */
+        _gotcha: "",
+      }),
+    });
+
+    if (!res.ok) {
+      console.error(
+        `[quote] JXM Forms responded ${res.status}: ${await res.text()}`,
+      );
+      return { forwarded: false as const };
+    }
+
+    return { forwarded: true as const };
+  } catch (err) {
+    console.error("[quote] JXM Forms forward failed (email unaffected):", err);
+    return { forwarded: false as const };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 export async function POST(request: Request) {
   let data: QuotePayload;
 
@@ -221,7 +286,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    const [emailResult] = await Promise.all([sendEmail(data), appendToSheet(data)]);
+    const [emailResult] = await Promise.all([
+      sendEmail(data),
+      appendToSheet(data),
+      forwardToJxmForms(data),
+    ]);
 
     if (!emailResult.sent) {
       // No mail transport configured — log it so nothing is lost in dev.
