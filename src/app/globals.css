@@ -71,6 +71,15 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 
+/* Entrance for the rotating review components — one gentle fade per change. */
+@keyframes review-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.review-fade {
+  animation: review-fade 450ms ease both;
+}
+
 /* Respect users who'd rather not have motion. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

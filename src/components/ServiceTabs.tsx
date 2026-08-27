@@ -1,9 +1,8 @@
 "use client";
 
 import { useId, useState } from "react";
-import Link from "next/link";
 import { servicePillars } from "@/config/services";
-import { pillarIcons, CheckIcon, ArrowIcon } from "./Icons";
+import { pillarIcons, CheckIcon } from "./Icons";
 import { sceneForService } from "./art/scenes";
 import { ButtonLink } from "./ui";
 import { cn } from "@/lib/cn";
@@ -130,10 +129,14 @@ export function ServiceTabs() {
             <h3 className="text-2xl font-extrabold text-navy-950 sm:text-3xl">
               {pillar.title}
             </h3>
-            <p className="mt-3 text-[15px] font-semibold text-navy-700">
-              {pillar.tagline}
-            </p>
-            <p className="mt-4 leading-relaxed text-navy-600">{pillar.blurb}</p>
+            {pillar.tagline && (
+              <p className="mt-3 text-[15px] font-semibold text-navy-700">
+                {pillar.tagline}
+              </p>
+            )}
+            {pillar.blurb && (
+              <p className="mt-4 leading-relaxed text-navy-600">{pillar.blurb}</p>
+            )}
 
             <ul className="mt-6 space-y-2.5">
               {pillar.assurances.map((point) => (
@@ -146,31 +149,26 @@ export function ServiceTabs() {
               ))}
             </ul>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8">
               <ButtonLink href={`/contact?service=${pillar.slug}`}>
                 Get a quote
               </ButtonLink>
-              <Link
-                href={`/services/${pillar.slug}`}
-                className="inline-flex items-center gap-1.5 px-2 py-3 text-[15px] font-semibold text-navy-900 hover:text-brand-600"
-              >
-                Full details
-                <ArrowIcon className="h-4 w-4" />
-              </Link>
             </div>
           </div>
 
           <div className="lg:col-span-3">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-navy-500">
-              What&apos;s included
+              {pillar.inclusionsLabel}
             </p>
             <div className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
               {pillar.inclusions.map((item) => (
                 <div key={item.name}>
                   <p className="font-semibold text-navy-900">{item.name}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-navy-600">
-                    {item.detail}
-                  </p>
+                  {item.detail && (
+                    <p className="mt-1 text-sm leading-relaxed text-navy-600">
+                      {item.detail}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

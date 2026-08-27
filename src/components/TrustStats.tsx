@@ -5,7 +5,7 @@ import { ShieldIcon, TruckIcon, StarIcon, PinIcon } from "./Icons";
 const stats = [
   {
     value: `${credentials.yearsExperience}+`,
-    label: "Years in the trade",
+    label: "Years in the moving industry",
     detail: "A family business since the piano days",
     Icon: TruckIcon,
   },
@@ -23,8 +23,8 @@ const stats = [
   },
   {
     value: String(site.depots.length),
-    label: "Auckland depots",
-    detail: "South Auckland and West Auckland",
+    label: "Auckland wide depots",
+    detail: "Covering every Auckland suburb",
     Icon: PinIcon,
   },
 ];

@@ -44,18 +44,18 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/95 backdrop-blur">
-      {/* Utility bar — the 48-hour rule lives here so it's visible site-wide. */}
+      {/* Utility bar — the 0800 number is the site-wide call to action. */}
       <div className="hidden bg-navy-900 py-2 text-white lg:block">
         <Container className="flex items-center justify-between text-[13px]">
           <p className="text-navy-100">
-            Moving within {site.urgentMoveHours} hours? Call us — don&apos;t email.
+            Call to speak to a move manager
           </p>
           <div className="flex items-center gap-5">
             <a
               href={`tel:${site.phones.sales.tel}`}
-              className="flex items-center gap-1.5 font-semibold hover:text-brand-300"
+              className="flex items-center gap-2 text-lg font-extrabold tracking-wide text-brand-300 hover:text-brand-200"
             >
-              <PhoneIcon className="h-3.5 w-3.5" />
+              <PhoneIcon className="h-4 w-4" />
               {site.phones.sales.label}
             </a>
             <a
@@ -111,9 +111,11 @@ export function Header() {
                         <span className="block text-[15px] font-semibold text-navy-900">
                           {pillar.title}
                         </span>
-                        <span className="mt-0.5 block text-[13px] leading-snug text-navy-600">
-                          {pillar.tagline}
-                        </span>
+                        {pillar.tagline && (
+                          <span className="mt-0.5 block text-[13px] leading-snug text-navy-600">
+                            {pillar.tagline}
+                          </span>
+                        )}
                       </Link>
                     ))}
                   </div>
@@ -219,13 +221,13 @@ export function Header() {
               </ButtonLink>
               <a
                 href={`tel:${site.phones.sales.tel}`}
-                className="flex items-center justify-center gap-2 rounded-lg border-2 border-navy-200 py-3.5 font-semibold text-navy-900"
+                className="flex items-center justify-center gap-2 rounded-lg border-2 border-navy-900 py-3.5 text-xl font-extrabold text-navy-900"
               >
-                <PhoneIcon className="h-4 w-4" />
+                <PhoneIcon className="h-5 w-5" />
                 {site.phones.sales.label}
               </a>
               <p className="text-center text-[13px] text-navy-600">
-                Moving within {site.urgentMoveHours} hours? Please call.
+                Call to speak to a move manager.
               </p>
             </div>
           </Container>

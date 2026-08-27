@@ -11,7 +11,7 @@ import { breadcrumbSchema } from "@/config/seo";
 export const metadata: Metadata = {
   title: "Get a Free Moving Quote | Auckland Movers",
   description:
-    "Get a free written quote for your Auckland move — home, office, piano or spa pool. Email us any time, or call 021 217 3102 if you're moving within 48 hours.",
+    "Get a free written quote for your Auckland move — home, office, piano or spa pool. Email us any time, or call 0800 328 425 to speak to a move manager.",
   alternates: { canonical: "/contact" },
 };
 
@@ -53,26 +53,26 @@ export default function ContactPage() {
 
             {/* Sidebar */}
             <aside className="space-y-6">
-              {/* Urgent path — deliberately the most visually prominent card. */}
+              {/* Phone path — deliberately the most visually prominent card. */}
               <div className="rounded-2xl border-2 border-brand-400 bg-brand-50 p-6">
                 <div className="flex items-center gap-2 text-brand-800">
                   <ClockIcon className="h-5 w-5" />
                   <p className="text-xs font-bold uppercase tracking-[0.16em]">
-                    Moving in a hurry?
+                    Prefer to talk?
                   </p>
                 </div>
                 <p className="mt-3 text-lg font-bold text-navy-950">
-                  If your move is within {site.urgentMoveHours} hours, call us.
+                  Call to speak to a move manager.
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-navy-700">
-                  Email is perfect for everything else — but at this notice a
-                  phone call gets you an answer immediately.
+                  Email is perfect for quotes — but a phone call gets you an
+                  answer straight away.
                 </p>
                 <a
                   href={`tel:${site.phones.sales.tel}`}
-                  className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-navy-900 py-4 text-lg font-bold text-white transition-colors hover:bg-navy-800"
+                  className="mt-4 flex items-center justify-center gap-2.5 rounded-lg bg-navy-900 py-4 text-2xl font-extrabold tracking-wide text-white transition-colors hover:bg-navy-800"
                 >
-                  <PhoneIcon className="h-5 w-5" />
+                  <PhoneIcon className="h-6 w-6" />
                   {site.phones.sales.label}
                 </a>
               </div>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                     <div>
                       <dt className="font-semibold text-navy-900">Depots</dt>
                       <dd className="text-navy-600">
-                        South Auckland &amp; West Auckland
+                        Auckland wide
                         <span className="block text-xs">
                           Serving all Auckland suburbs
                         </span>

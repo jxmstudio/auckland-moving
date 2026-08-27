@@ -24,20 +24,20 @@ export const metadata: Metadata = {
 const howItWorks = [
   {
     step: "01",
-    title: "Tell us about the move",
-    body: "Send through the details, or call if it's urgent. The more you tell us about stairs, access and heavy items, the more accurate the number.",
+    title: "Fill in the forms",
+    body: "Provide all details and dates for the upcoming move.",
     Icon: BoxIcon,
   },
   {
     step: "02",
-    title: "Get a written quote",
-    body: "A fixed quote in writing, usually within one business day. For bigger or commercial jobs we'll come and walk the site first.",
+    title: "We will email you a quote",
+    body: "Once we receive the information, we will complete and send the quote.",
     Icon: ShieldIcon,
   },
   {
     step: "03",
-    title: "We do the heavy lifting",
-    body: "A uniformed crew arrives on time with everything already on the truck. We wrap, load, drive, and put things where you want them.",
+    title: "Reply to confirm your booking",
+    body: "Upon confirmation, if required we will arrange for our Operations Manager to conduct an onsite visit and check access.",
     Icon: TruckIcon,
   },
 ];
@@ -91,13 +91,12 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-                Auckland movers who treat your things like their own
+                Fatialofa family — for all your residential and commercial moves
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-100">
-                {site.tagline}. Homes, offices, pianos and spa pools — moved by a
-                family that has been doing this for a quarter of a century, from
-                depots in South and West Auckland.
+                For 30 years, our family-owned business has successfully moved
+                Aucklanders into their new homes and offices.
               </p>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -107,16 +106,15 @@ export default function HomePage() {
                 </ButtonLink>
                 <a
                   href={`tel:${site.phones.sales.tel}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 px-7 py-4 text-base font-semibold transition-colors hover:border-white hover:bg-white/10"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-lg border-2 border-white/30 px-7 py-4 text-xl font-extrabold tracking-wide transition-colors hover:border-white hover:bg-white/10"
                 >
-                  <PhoneIcon className="h-5 w-5" />
+                  <PhoneIcon className="h-6 w-6" />
                   {site.phones.sales.label}
                 </a>
               </div>
 
               <p className="mt-5 text-sm text-navy-200">
-                Email us for a quote — or call if you&apos;re moving within{" "}
-                {site.urgentMoveHours} hours.
+                Email us for a quote or call to speak to a move manager.
               </p>
             </div>
 
@@ -141,7 +139,7 @@ export default function HomePage() {
                   </span>
                   <div>
                     <p className="text-[13px] font-bold leading-tight text-navy-950">
-                      South &amp; West Auckland depots
+                      Auckland wide depots
                     </p>
                     <p className="mt-0.5 text-[11px] leading-tight text-navy-500">
                       Covering all of Auckland
@@ -161,9 +159,8 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             align="center"
-            eyebrow="What can we move for you?"
-            title="Pick the kind of move you need"
-            lede="Three straightforward options, so you're not wading through a page about office relocations when you just want your piano shifted."
+            title="How can we assist with your upcoming move?"
+            lede="To make things simple, select the following options below."
           />
           <div className="mt-12">
             <ServiceTabs />
@@ -176,7 +173,7 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="How it works"
-            title="Three steps, no surprises"
+            title="Three simple steps"
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {howItWorks.map(({ step, title, body, Icon }) => (
@@ -225,7 +222,7 @@ export default function HomePage() {
                   before you pick anything up.
                 </p>
                 <p>
-                  Twenty-five years on, he runs the company with his wife Carolyn,
+                  Thirty years on, he runs the company with his wife Carolyn,
                   the crews are trained in-house, and the phone call after your
                   move to check everything went well still comes from Graeme
                   himself.

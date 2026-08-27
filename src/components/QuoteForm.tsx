@@ -144,10 +144,11 @@ export function QuoteForm() {
         {isUrgent && (
           <div className="mx-auto mt-6 max-w-md rounded-xl border-2 border-brand-300 bg-white p-5">
             <p className="font-semibold text-navy-950">
-              You&apos;re moving in under {site.urgentMoveHours} hours.
+              Your move date is very close.
             </p>
             <p className="mt-1.5 text-sm text-navy-700">
-              Please call us as well so we can lock in a crew straight away.
+              Please call a move manager as well so we can lock in a crew
+              straight away.
             </p>
             <a
               href={`tel:${site.phones.sales.tel}`}
@@ -303,14 +304,14 @@ export function QuoteForm() {
       </div>
 
       {/*
-        The 48-hour rule, enforced by the form rather than just stated in copy.
-        Pick an imminent date and the page stops selling email and starts
-        selling the phone.
+        Imminent move dates still get the phone push, enforced by the form
+        rather than stated in copy — pick a close date and the page stops
+        selling email and starts selling the phone.
       */}
       {isUrgent && (
         <div className="mt-5 rounded-xl border-2 border-brand-400 bg-brand-50 p-5">
           <p className="font-bold text-navy-950">
-            That&apos;s within {site.urgentMoveHours} hours — please call us.
+            That&apos;s very soon — please call and speak to a move manager.
           </p>
           <p className="mt-1.5 text-sm leading-relaxed text-navy-700">
             Send this form through by all means, but for a move this close a

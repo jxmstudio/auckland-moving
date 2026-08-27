@@ -6,9 +6,8 @@ import { site } from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
 
 /**
- * The brief is explicit about the hierarchy: email is the primary action, phone
- * is for moves inside 48 hours. The layout reflects that — quote button first
- * and largest, call second and framed as the urgent path.
+ * Email is the primary action for quotes; the phone path is framed as "speak
+ * to a move manager", with the 0800 number given call-to-action weight.
  */
 export function CtaBanner({
   title = "Ready to get moving?",
@@ -55,17 +54,17 @@ export function CtaBanner({
               </div>
 
               <p className="text-sm font-semibold text-navy-950">
-                Moving within {site.urgentMoveHours} hours?
+                Prefer to talk it through?
               </p>
               <p className="mt-1 text-sm text-navy-600">
-                Don&apos;t email — give us a call and we&apos;ll sort it now.
+                Call to speak to a move manager.
               </p>
               <a
                 href={`tel:${site.phones.sales.tel}`}
                 onClick={() => trackEvent("call_click", { context })}
-                className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border-2 border-navy-900 py-3.5 text-lg font-bold text-navy-900 transition-colors hover:bg-navy-900 hover:text-white"
+                className="mt-3 flex w-full items-center justify-center gap-2.5 rounded-lg border-2 border-navy-900 py-4 text-2xl font-extrabold tracking-wide text-navy-900 transition-colors hover:bg-navy-900 hover:text-white"
               >
-                <PhoneIcon className="h-5 w-5" />
+                <PhoneIcon className="h-6 w-6" />
                 {site.phones.sales.label}
               </a>
             </div>

@@ -9,9 +9,9 @@ import { site, credentials, canPublishInsuranceFigures } from "@/config/site";
 import { breadcrumbSchema } from "@/config/seo";
 
 export const metadata: Metadata = {
-  title: "About Us | 25+ Years Moving Aucklanders",
+  title: "About Us | 30+ Years Moving Aucklanders",
   description:
-    "Auckland Moving Professionals is a family-run New Zealand moving company. 25+ years, 5,000+ properties moved, members of the National Road Carriers Association.",
+    "Auckland Moving Professionals is a family-run New Zealand moving company. 30+ years, 5,000+ properties moved, members of the National Road Carriers Association.",
   alternates: { canonical: "/about" },
 };
 
@@ -19,7 +19,7 @@ const team = [
   {
     name: "Graeme Fatialofa",
     role: "General Manager",
-    bio: "Learned the trade moving pianos with his uncle, Peter “Fats” Fatialofa. Twenty-five years on he still meets customers face to face and rings after the move to check it went well.",
+    bio: "Learned the trade moving pianos with his uncle, Peter “Fats” Fatialofa. Thirty years on he still meets customers face to face and rings after the move to check it went well.",
   },
   {
     name: "Carolyn Fatialofa",
@@ -117,7 +117,7 @@ export default function AboutPage() {
             </p>
             <p>
               He took that into his own company, and has spent the last
-              twenty-five years building it with his wife Carolyn. In the last
+              thirty years building it with his wife Carolyn. In the last
               decade alone the team has moved more than{" "}
               {credentials.propertiesMoved.toLocaleString()} properties — houses,
               apartments, offices, and a great many pianos and spa pools that

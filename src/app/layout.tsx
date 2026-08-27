@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ReviewStrip } from "@/components/RotatingReviews";
 import { JsonLd } from "@/components/ui";
 import { site } from "@/config/site";
 import { defaultMeta, organisationSchema } from "@/config/seo";
@@ -92,6 +93,8 @@ export default function RootLayout({
         <main id="main" className="flex-1">
           {children}
         </main>
+        {/* Rotating Google reviews on every page (hides itself on /reviews). */}
+        <ReviewStrip />
         <Footer />
 
         <JsonLd data={organisationSchema()} />

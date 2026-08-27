@@ -15,7 +15,7 @@ export const site = {
   legalName: "Auckland Moving Professionals Ltd",
   shortName: "AMP",
 
-  tagline: "Moving Aucklanders into new homes and offices for over 25 years",
+  tagline: "Moving Aucklanders into new homes and offices for over 30 years",
 
   url: "https://www.aucklandmoving.co.nz",
 
@@ -30,22 +30,18 @@ export const site = {
    * customers — header, footer, contact, reviews, the quote form's success
    * message, and the Organization schema all read this one value.
    */
-  email: "info@aucklandmoving.co.nz",
+  email: "sales@aucklandmoving.co.nz",
 
   phones: {
-    /** Primary CTA everywhere — sales / office. */
+    /**
+     * The one number, everywhere — the client asked for a single 0800 line as
+     * the call-to-action on every phone reference.
+     */
     sales: {
-      label: "021 217 3102",
-      tel: "+64212173102",
-      name: "Sales & bookings",
-      person: "Tere McLindon, Office Manager",
-    },
-    /** Secondary — operations line, shown in footer and on /contact. */
-    operations: {
-      label: "027 486 6538",
-      tel: "+6427486 6538".replace(/\s/g, ""),
-      name: "Operations",
-      person: "Graeme Fatialofa, General Manager",
+      label: "0800 328 425",
+      tel: "0800328425",
+      name: "Call to speak to a move manager",
+      person: "Sales, bookings & operations",
     },
   },
 
@@ -56,6 +52,12 @@ export const site = {
      */
     facebook: "https://facebook.com/suburbanmetrorelocations",
   },
+
+  /**
+   * The live Google Business listing (place CID). Where "read our reviews on
+   * Google" links point; also where customers land to leave one.
+   */
+  googleReviewsUrl: "https://maps.google.com/?cid=14409457913544713031",
 
   /** Brother company — specialist piano & spa work. */
   siblingCompany: {
@@ -79,11 +81,12 @@ export const site = {
 } as const;
 
 export const credentials = {
-  yearsExperience: 25,
+  yearsExperience: 30,
   propertiesMoved: 5000,
   propertiesMovedWindowYears: 10,
-  googleRating: 4.8,
-  googleReviewCount: 125,
+  /* Checked live on the Google Business listing, 28 Aug 2026. */
+  googleRating: 4.9,
+  googleReviewCount: 199,
 
   memberships: [
     {

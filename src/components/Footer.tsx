@@ -18,8 +18,8 @@ export function Footer() {
             <Logo variant="light" />
             <p className="mt-5 text-sm leading-relaxed">
               A family-run New Zealand moving company. {credentials.yearsExperience}+
-              years, {credentials.propertiesMoved.toLocaleString()}+ properties
-              moved, and depots in South and West Auckland.
+              years in the moving industry, {credentials.propertiesMoved.toLocaleString()}+
+              properties moved, and Auckland wide depots.
             </p>
 
             <div className="mt-6 space-y-3 text-sm">
@@ -34,27 +34,13 @@ export function Footer() {
                 href={`tel:${site.phones.sales.tel}`}
                 className="flex items-start gap-2.5 hover:text-white"
               >
-                <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+                <PhoneIcon className="mt-1 h-5 w-5 shrink-0 text-brand-400" />
                 <span>
-                  <span className="font-semibold text-white">
+                  <span className="text-xl font-extrabold tracking-wide text-white">
                     {site.phones.sales.label}
                   </span>
                   <span className="block text-xs text-navy-300">
                     {site.phones.sales.name}
-                  </span>
-                </span>
-              </a>
-              <a
-                href={`tel:${site.phones.operations.tel}`}
-                className="flex items-start gap-2.5 hover:text-white"
-              >
-                <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-navy-400" />
-                <span>
-                  <span className="font-semibold text-white">
-                    {site.phones.operations.label}
-                  </span>
-                  <span className="block text-xs text-navy-300">
-                    {site.phones.operations.name}
                   </span>
                 </span>
               </a>

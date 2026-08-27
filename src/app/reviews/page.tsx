@@ -27,25 +27,35 @@ export default function ReviewsPage() {
               Don&apos;t take our word for it
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-navy-700">
-              Twenty-five years of moves, and a lot of customers who came back to
+              Thirty years of moves, and a lot of customers who came back to
               us the second and third time they moved.
             </p>
           </div>
 
-          <div className="mt-9 inline-flex items-center gap-4 rounded-2xl border border-navy-100 bg-white px-6 py-5 shadow-sm">
-            <span className="font-display text-5xl font-extrabold text-navy-950">
-              {credentials.googleRating}
-            </span>
-            <span>
-              <span className="flex gap-0.5 text-brand-500" aria-hidden>
-                {Array.from({ length: 5 }, (_, i) => (
-                  <StarIcon key={i} className="h-5 w-5" />
-                ))}
+          <div className="mt-9 flex flex-wrap items-center gap-5">
+            <div className="inline-flex items-center gap-4 rounded-2xl border border-navy-100 bg-white px-6 py-5 shadow-sm">
+              <span className="font-display text-5xl font-extrabold text-navy-950">
+                {credentials.googleRating}
               </span>
-              <span className="mt-1.5 block text-sm text-navy-600">
-                Average from {credentials.googleReviewCount}+ customer reviews
+              <span>
+                <span className="flex gap-0.5 text-brand-500" aria-hidden>
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <StarIcon key={i} className="h-5 w-5" />
+                  ))}
+                </span>
+                <span className="mt-1.5 block text-sm text-navy-600">
+                  Average from {credentials.googleReviewCount} Google reviews
+                </span>
               </span>
-            </span>
+            </div>
+            <a
+              href={site.googleReviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-semibold text-navy-900 underline underline-offset-4 hover:text-brand-600"
+            >
+              Read all {credentials.googleReviewCount} reviews on Google ↗
+            </a>
           </div>
         </Container>
       </section>
@@ -69,12 +79,21 @@ export default function ReviewsPage() {
               We&apos;d genuinely appreciate a review — it is the main way people
               find us. Leave one on{" "}
               <a
+                href={site.googleReviewsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-navy-900 underline underline-offset-2"
+              >
+                our Google listing
+              </a>{" "}
+              or{" "}
+              <a
                 href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-navy-900 underline underline-offset-2"
               >
-                our Facebook page
+                Facebook page
               </a>
               , or email us at{" "}
               <a

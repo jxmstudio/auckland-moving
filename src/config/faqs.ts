@@ -24,13 +24,13 @@ export const faqs: Faq[] = [
   {
     question: "How far in advance should I book my move?",
     answer:
-      `Two to three weeks is comfortable, and month-end and Fridays book out first. If you need to move within ${site.urgentMoveHours} hours, don't email — call us on ${site.phones.sales.label} and we'll tell you straight away what we can do.`,
+      `Two to three weeks is comfortable, and month-end and Fridays book out first. If your move is urgent, call us on ${site.phones.sales.label} to speak to a move manager and we'll tell you straight away what we can do.`,
     scope: "all",
   },
   {
     question: "What areas of Auckland do you cover?",
     answer:
-      "The whole of Auckland — North Shore, Central, East, South and West — from our depots in South Auckland and West Auckland. " +
+      "The whole of Auckland — North Shore, Central, East, South and West — from our Auckland wide depots. " +
       outOfTownNote,
     scope: "all",
   },
@@ -68,7 +68,7 @@ export const faqs: Faq[] = [
   {
     question: "Do you move grand pianos as well as uprights?",
     answer:
-      "Both. A grand is dismantled properly for transport — legs and lyre removed, the case wrapped and carried on a purpose-built skid — then reassembled at the other end. We've been moving pianos as a family for over 25 years, which is where this business started.",
+      "Both. A grand is dismantled properly for transport — legs and lyre removed, the case wrapped and carried on a purpose-built skid — then reassembled at the other end. We've been moving pianos as a family for over 30 years, which is where this business started.",
     scope: "piano-spa",
   },
   {

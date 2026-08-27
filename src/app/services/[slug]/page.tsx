@@ -9,7 +9,7 @@ import {
   ButtonLink,
   JsonLd,
 } from "@/components/ui";
-import { TestimonialCard } from "@/components/Testimonials";
+import { RotatingTestimonials, GoogleRatingBadge } from "@/components/RotatingReviews";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
 import { CheckIcon, PhoneIcon, ArrowIcon, pillarIcons } from "@/components/Icons";
@@ -66,8 +66,12 @@ export default async function ServicePage({
   const Icon = pillarIcons[pillar.icon];
   const PillarScene = sceneForService[pillar.slug];
   const faqs = faqsFor(pillar.slug);
+  /* Lead with this pillar's own reviews, then top up from the general pool. */
   const pillarReviews = testimonialsFor(pillar.slug);
-  const reviews = pillarReviews.length >= 2 ? pillarReviews : testimonials.slice(0, 3);
+  const reviews = [
+    ...pillarReviews,
+    ...testimonials.filter((t) => !pillarReviews.includes(t)),
+  ].slice(0, 9);
   const others = servicePillars.filter((p) => p.slug !== pillar.slug);
 
   return (
@@ -105,9 +109,11 @@ export default async function ServicePage({
               <h1 className="text-4xl font-extrabold leading-tight text-navy-950 sm:text-5xl">
                 {pillar.title}
               </h1>
-              <p className="mt-4 text-xl font-semibold text-navy-700">
-                {pillar.tagline}
-              </p>
+              {pillar.tagline && (
+                <p className="mt-4 text-xl font-semibold text-navy-700">
+                  {pillar.tagline}
+                </p>
+              )}
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-navy-700">
                 {pillar.intro.map((para) => (
                   <p key={para.slice(0, 40)}>{para}</p>
@@ -135,13 +141,13 @@ export default async function ServicePage({
               </ButtonLink>
               <a
                 href={`tel:${site.phones.sales.tel}`}
-                className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border-2 border-navy-200 py-3.5 font-bold text-navy-900 transition-colors hover:border-navy-900"
+                className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border-2 border-navy-200 py-3.5 text-xl font-extrabold tracking-wide text-navy-900 transition-colors hover:border-navy-900"
               >
-                <PhoneIcon className="h-4 w-4" />
+                <PhoneIcon className="h-5 w-5" />
                 {site.phones.sales.label}
               </a>
               <p className="mt-3 text-center text-xs text-navy-500">
-                Moving within {site.urgentMoveHours} hours? Please call.
+                Call to speak to a move manager.
               </p>
             </div>
           </div>
@@ -157,7 +163,7 @@ export default async function ServicePage({
       {/* ── What's included ──────────────────────────────────────────────── */}
       <Section>
         <Container>
-          <SectionHeading eyebrow="What's included" title={`Everything we handle`} />
+          <SectionHeading eyebrow={pillar.inclusionsLabel} title={`Everything we handle`} />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {pillar.inclusions.map((item) => (
               <div
@@ -165,7 +171,9 @@ export default async function ServicePage({
                 className="rounded-xl border border-navy-100 bg-white p-6 shadow-sm"
               >
                 <h3 className="text-lg font-bold text-navy-950">{item.name}</h3>
-                <p className="mt-2 leading-relaxed text-navy-600">{item.detail}</p>
+                {item.detail && (
+                  <p className="mt-2 leading-relaxed text-navy-600">{item.detail}</p>
+                )}
               </div>
             ))}
           </div>
@@ -206,11 +214,12 @@ export default async function ServicePage({
       {/* ── Reviews ──────────────────────────────────────────────────────── */}
       <Section tone="tint">
         <Container>
-          <SectionHeading eyebrow="Customer reviews" title="What people say" />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {reviews.slice(0, 3).map((t) => (
-              <TestimonialCard key={t.name + t.quote.slice(0, 20)} testimonial={t} />
-            ))}
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeading eyebrow="Customer reviews" title="What people say" />
+            <GoogleRatingBadge />
+          </div>
+          <div className="mt-10">
+            <RotatingTestimonials items={reviews} />
           </div>
           <Link
             href="/reviews"
@@ -259,9 +268,11 @@ export default async function ServicePage({
                     <span className="block text-lg font-bold text-navy-950 group-hover:text-brand-600">
                       {other.title}
                     </span>
-                    <span className="mt-1 block text-sm leading-relaxed text-navy-600">
-                      {other.tagline}
-                    </span>
+                    {other.tagline && (
+                      <span className="mt-1 block text-sm leading-relaxed text-navy-600">
+                        {other.tagline}
+                      </span>
+                    )}
                   </span>
                 </Link>
               );
