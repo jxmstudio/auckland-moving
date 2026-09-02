@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Container, Section, SectionHeading, JsonLd, Pill } from "@/components/ui";
 import { CtaBanner } from "@/components/CtaBanner";
 import { TrustStats } from "@/components/TrustStats";
-import { CheckIcon, ShieldIcon, TruckIcon } from "@/components/Icons";
+import { ShieldIcon, TruckIcon } from "@/components/Icons";
 import { CrewScene } from "@/components/art/scenes";
 import { site, credentials, canPublishInsuranceFigures } from "@/config/site";
 import { breadcrumbSchema } from "@/config/seo";
@@ -19,7 +19,7 @@ const team = [
   {
     name: "Graeme Fatialofa",
     role: "General Manager",
-    bio: "Learned the trade moving pianos with his uncle, Peter “Fats” Fatialofa. Thirty years on he still meets customers face to face and rings after the move to check it went well.",
+    bio: "Learned the trade moving pianos with his Uncle, Peter “Fats” Fatialofa. Thirty years on he still meets customers face to face and rings after the move to check it went well.",
   },
   {
     name: "Carolyn Fatialofa",
@@ -38,25 +38,6 @@ const team = [
   },
 ];
 
-const values = [
-  {
-    title: "Mind before muscle",
-    body: "Read the doorway, the driveway and the stairs before you pick anything up. It is the single thing Graeme took from his uncle, and it is why things do not get broken.",
-  },
-  {
-    title: "The crew are ours",
-    body: "We train people in-house and give them a pathway — several of our team are working toward becoming owner-driver operators. Stable crews mean careful crews.",
-  },
-  {
-    title: "Say what it will cost",
-    body: "A fixed quote in writing before the day. If something changes on site, we talk to you before we do it, not after.",
-  },
-  {
-    title: "Answer the phone",
-    body: "You get people who know your job, not a call centre. And when it is done, you get a call from Graeme asking how it went.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -71,8 +52,7 @@ export default function AboutPage() {
               {credentials.yearsExperience} years
             </h1>
             <p className="mt-6 text-xl leading-relaxed text-navy-100">
-              New Zealand owned, family run, and still doing it the way Graeme
-              learned it — carefully, and with a bit of a laugh.
+              New Zealand owned family business. Mind over muscle.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               <Pill tone="light">NZ owned &amp; operated</Pill>
@@ -98,34 +78,23 @@ export default function AboutPage() {
         <Container className="max-w-3xl">
           <SectionHeading
             eyebrow="Our story"
-            title="It started with pianos, and an uncle called Fats"
+            title="It started with pianos, and an Uncle called Fats"
           />
           <div className="mt-7 space-y-5 text-lg leading-relaxed text-navy-700">
             <p>
-              Peter &ldquo;Fats&rdquo; Fatialofa captained Manu Samoa and propped
-              the scrum for Auckland, but plenty of people around this city knew
-              him first as the man with the piano trucks. His moving business was
-              where a lot of the family learned to work.
+              Graeme Fatialofa started his career moving pianos with his Uncle
+              &ldquo;Fats&rdquo; (FATSBOYS LTD) after leaving school. As his
+              Uncle&apos;s international rugby career grew, Graeme stepped in to
+              help run the business, learning the trade through hard work,
+              honesty, and excellent customer care.
             </p>
             <p>
-              Graeme Fatialofa did his apprenticeship there — moving pianos with
-              his uncle, learning that a grand piano does not forgive
-              impatience. The lesson stuck: brute strength is how instruments get
-              damaged and backs get hurt. Doing it properly means combining mind
-              and muscle, in that order. Look at the job, plan the lift, bring the
-              right gear.
+              Over time, Graeme built a reputation for careful, specialized
+              moves, including concert grand pianos, spa pools, pool tables,
+              statues, and other oversized bulky items.
             </p>
             <p>
-              He took that into his own company, and has spent the last
-              thirty years building it with his wife Carolyn. In the last
-              decade alone the team has moved more than{" "}
-              {credentials.propertiesMoved.toLocaleString()} properties — houses,
-              apartments, offices, and a great many pianos and spa pools that
-              other companies would rather not touch.
-            </p>
-            <p>
-              These days the business runs from two depots, in South Auckland and
-              West Auckland, alongside our brother company{" "}
+              Alongside our brother company{" "}
               <a
                 href={site.siblingCompany.url}
                 target="_blank"
@@ -134,8 +103,12 @@ export default function AboutPage() {
               >
                 {site.siblingCompany.name}
               </a>
-              , which handles the heaviest specialist work. Same family, same
-              standards.
+              , all the skills and values learnt 30 years ago still hold true to
+              how Graeme and his team serve our customers today.
+            </p>
+            <p>
+              Graeme is a seasoned athlete of service, he remains focused on
+              delivering reliable, high-quality, and friendly service every time.
             </p>
             {/*
               Second of the three permitted references to the former trading
@@ -150,34 +123,8 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* ── Values ───────────────────────────────────────────────────────── */}
-      <Section tone="tint">
-        <Container>
-          <SectionHeading
-            eyebrow="How we work"
-            title="Four things we do not compromise on"
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="rounded-2xl border border-navy-100 bg-white p-7 shadow-sm"
-              >
-                <CheckIcon className="h-7 w-7 text-brand-600" />
-                <h3 className="mt-4 text-xl font-bold text-navy-950">
-                  {value.title}
-                </h3>
-                <p className="mt-2.5 leading-relaxed text-navy-600">
-                  {value.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
       {/* ── Team ─────────────────────────────────────────────────────────── */}
-      <Section>
+      <Section tone="tint">
         <Container>
           <SectionHeading
             eyebrow="The team"

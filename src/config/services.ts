@@ -2,7 +2,8 @@
  * The three service pillars. Graeme asked for three tabbed options so customers
  * don't get lost on one long page — this array drives the homepage tabs, the
  * nav dropdown, the quote form's move-type selector, and the /services/[slug]
- * pages. Order matters: residential leads, per the brief.
+ * pages. Order matters: residential, commercial, then heavy weight, per the
+ * client's Sep 2026 revision.
  */
 
 export type ServiceSlug = "residential" | "piano-spa" | "commercial";
@@ -54,11 +55,11 @@ export const servicePillars: ServicePillar[] = [
       { name: "Intercity North Island relocations" },
     ],
     assurances: [
+      "All quotes personalised for each move",
       "Move manager throughout the booking process",
       "Team leader assigned for all moves",
       "Experienced and serving movers in uniform",
       "Clean trucks, equipped with moving blankets, ties and trolleys",
-      "All quotes personalised for each move",
     ],
     keywords: [
       "house movers Auckland",
@@ -72,50 +73,6 @@ export const servicePillars: ServicePillar[] = [
       "Auckland house movers with 30+ years' experience and 5,000+ homes moved. Uniformed crews, packing and storage, personalised written quotes.",
     accent: "navy",
     icon: "home",
-  },
-  {
-    slug: "piano-spa",
-    label: "Piano & spa pool",
-    title: "Specialised moving",
-    businessShare: 40,
-    tagline: "The specialist gear, and the family that has been doing it longest.",
-    blurb:
-      "Grand pianos, uprights, spa pools, pool tables, safes, statues and anything heavy and challenging.",
-    intro: [
-      "This is where the family started. Graeme learned the trade moving pianos alongside his uncle, Peter “Fats” Fatialofa, and it is still the work we are best known for. Four in every ten jobs we do is a piano, a spa pool or something else heavy and unforgiving.",
-      "Heavy specialist items are not a furniture move with more people on the end of it. They need the right trucks — suspension rated for concentrated point loads — plus skates, gantries, stair-climbing gear and crews who have moved hundreds of them. Brute force is how instruments get broken. We combine mind and muscle, in that order.",
-    ],
-    inclusionsLabel: "Services available",
-    inclusions: [
-      { name: "Grand & baby grand pianos", detail: "Legs and lyre removed, wrapped, boarded and moved on a purpose-built skid." },
-      { name: "Upright pianos", detail: "Including tight hallways, staircases and second-storey apartments." },
-      { name: "Spa pools", detail: "Craned or skated out, transported level, and repositioned on the new pad." },
-      { name: "Pool & billiard tables", detail: "Dismantled, slate handled properly, reassembled and re-levelled." },
-      { name: "Safes & heavy machinery", detail: "Gym equipment, safes, statues, industrial plant and workshop gear." },
-      { name: "Access assessment", detail: "We check driveways, gates, steps and turning space before quoting." },
-    ],
-    assurances: [
-      "Team members trained from the same blueprint set by Peter “Fats” Fatialofa",
-      "Purpose-built cradles, slides, hand trolleys and dollies",
-      "Move manager throughout the booking process",
-      "Team leader assigned for all moves",
-      "Experienced and serving movers in uniform",
-      "Clean trucks, equipped with moving blankets, ties and trolleys",
-      "All quotes personalised for each move",
-      "Onsite driveway access check for the best size truck",
-    ],
-    keywords: [
-      "piano movers Auckland",
-      "spa pool movers Auckland",
-      "pool table movers Auckland",
-      "grand piano moving Auckland",
-      "specialist heavy item movers Auckland",
-    ],
-    metaTitle: "Piano & Spa Pool Movers Auckland | Specialists",
-    metaDescription:
-      "Auckland's specialist piano and spa pool movers. Purpose-built trucks, proper gantries and skates, 30+ years in the moving industry. Pool tables and safes too.",
-    accent: "brand",
-    icon: "piano",
   },
   {
     slug: "commercial",
@@ -134,11 +91,11 @@ export const servicePillars: ServicePillar[] = [
       { name: "Exhibition and tradeshow moves" },
     ],
     assurances: [
+      "All quotes personalised for each move",
       "Move manager throughout the booking process",
       "Team leader assigned for all moves",
       "Experienced and serving movers in uniform",
       "Clean trucks, equipped with moving blankets, ties and trolleys",
-      "All quotes personalised for each move",
     ],
     keywords: [
       "office movers Auckland",
@@ -152,6 +109,49 @@ export const servicePillars: ServicePillar[] = [
       "Auckland office and commercial relocation. Weekend and after-hours moves, crate hire, IT and server relocation, planned around your trading hours.",
     accent: "teal",
     icon: "office",
+  },
+  {
+    slug: "piano-spa",
+    label: "Heavy Weight Move",
+    title: "Specialised moving",
+    businessShare: 40,
+    tagline: "The specialist gear, and the family that has been doing it longest.",
+    blurb:
+      "Grand pianos, uprights, spa pools, pool tables, safes, statues and anything heavy and challenging.",
+    intro: [
+      "This is where the family started. Graeme learned the trade moving pianos alongside his Uncle, Peter “Fats” Fatialofa, and it is still the work we are best known for. Four in every ten jobs we do is a piano, a spa pool or something else heavy and unforgiving.",
+      "Heavy specialist items are not a furniture move with more people on the end of it. They need the right trucks — suspension rated for concentrated point loads — plus skates, gantries, stair-climbing gear and crews who have moved hundreds of them. Brute force is how instruments get broken. We combine mind and muscle, in that order.",
+    ],
+    inclusionsLabel: "Services available",
+    inclusions: [
+      { name: "Grand & baby grand pianos", detail: "Legs and lyre removed, wrapped, boarded and moved on a purpose-built skid." },
+      { name: "Upright pianos", detail: "Including tight hallways, staircases and second-storey apartments." },
+      { name: "Spa pools", detail: "Craned or skated out, transported level, and repositioned on the new pad." },
+      { name: "Pool & billiard tables", detail: "Dismantled, slate handled properly, reassembled and re-levelled." },
+      { name: "Safes & heavy machinery", detail: "Gym equipment, safes, statues, industrial plant and workshop gear." },
+      { name: "Access assessment", detail: "We check driveways, gates, steps and turning space before quoting." },
+    ],
+    assurances: [
+      "All quotes personalised for each move",
+      "Team members trained from the same blueprint set by Peter “Fats” Fatialofa",
+      "Purpose-built cradles, slides, hand trolleys and dollies",
+      "Move manager throughout the booking process",
+      "Team leader assigned for all moves",
+      "Experienced and serving movers in uniform",
+      "Clean trucks, equipped with moving blankets, ties and trolleys",
+    ],
+    keywords: [
+      "piano movers Auckland",
+      "spa pool movers Auckland",
+      "pool table movers Auckland",
+      "grand piano moving Auckland",
+      "specialist heavy item movers Auckland",
+    ],
+    metaTitle: "Piano & Spa Pool Movers Auckland | Specialists",
+    metaDescription:
+      "Auckland's specialist piano and spa pool movers. Purpose-built trucks, proper gantries and skates, 30+ years in the moving industry. Pool tables and safes too.",
+    accent: "brand",
+    icon: "piano",
   },
 ];
 

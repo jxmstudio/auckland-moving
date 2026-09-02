@@ -3,11 +3,10 @@ import Link from "next/link";
 
 import { Container, Section, SectionHeading, ButtonLink, Pill, JsonLd } from "@/components/ui";
 import { ServiceTabs } from "@/components/ServiceTabs";
-import { TrustStats } from "@/components/TrustStats";
 import { TestimonialsSection } from "@/components/Testimonials";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
-import { CheckIcon, PhoneIcon, ShieldIcon, PinIcon, ArrowIcon, TruckIcon, BoxIcon } from "@/components/Icons";
+import { CheckIcon, PhoneIcon, PinIcon, ArrowIcon } from "@/components/Icons";
 import { LoadingScene, CrewScene } from "@/components/art/scenes";
 
 import { site, credentials } from "@/config/site";
@@ -20,27 +19,6 @@ export const metadata: Metadata = {
   description: defaultMeta.description,
   alternates: { canonical: "/" },
 };
-
-const howItWorks = [
-  {
-    step: "01",
-    title: "Fill in the forms",
-    body: "Provide all details and dates for the upcoming move.",
-    Icon: BoxIcon,
-  },
-  {
-    step: "02",
-    title: "We will email you a quote",
-    body: "Once we receive the information, we will complete and send the quote.",
-    Icon: ShieldIcon,
-  },
-  {
-    step: "03",
-    title: "Reply to confirm your booking",
-    body: "Upon confirmation, if required we will arrange for our Operations Manager to conduct an onsite visit and check access.",
-    Icon: TruckIcon,
-  },
-];
 
 const whyUs = [
   {
@@ -91,7 +69,7 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-                Fatialofa family — for all your residential and commercial moves
+                Fatialofa Family — for all your moving needs
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-100">
@@ -152,15 +130,13 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <TrustStats />
-
       {/* ── Three service pillars ────────────────────────────────────────── */}
       <Section id="services">
         <Container>
           <SectionHeading
             align="center"
-            title="How can we assist with your upcoming move?"
-            lede="To make things simple, select the following options below."
+            title="How can we help with your next move"
+            lede="To keep it simple, choose a service below"
           />
           <div className="mt-12">
             <ServiceTabs />
@@ -168,35 +144,8 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* ── How it works ─────────────────────────────────────────────────── */}
-      <Section tone="tint">
-        <Container>
-          <SectionHeading
-            eyebrow="How it works"
-            title="Three simple steps"
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {howItWorks.map(({ step, title, body, Icon }) => (
-              <div
-                key={step}
-                className="relative rounded-2xl border border-navy-100 bg-white p-7 shadow-sm"
-              >
-                <span className="absolute right-6 top-6 font-display text-4xl font-extrabold text-navy-100">
-                  {step}
-                </span>
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-navy-900 text-white">
-                  <Icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-5 text-xl font-bold text-navy-950">{title}</h3>
-                <p className="mt-2.5 leading-relaxed text-navy-600">{body}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
       {/* ── The family story ─────────────────────────────────────────────── */}
-      <Section>
+      <Section tone="tint">
         <Container>
           <div className="mb-14 overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
             <CrewScene className="aspect-[16/9] w-full lg:aspect-[2.8/1]" />
@@ -206,12 +155,12 @@ export default function HomePage() {
             <div>
               <SectionHeading
                 eyebrow="Our story"
-                title="It started with a piano and an uncle called Fats"
+                title="It started with a piano and an Uncle called Fats"
               />
               <div className="mt-6 space-y-4 leading-relaxed text-navy-700">
                 <p>
                   Graeme Fatialofa learned this trade the hard way — moving pianos
-                  alongside his uncle, the late Peter &ldquo;Fats&rdquo; Fatialofa,
+                  alongside his Uncle, the late Peter &ldquo;Fats&rdquo; Fatialofa,
                   the Samoan rugby captain who was as well known around Auckland
                   for his moving trucks as he was for his front row.
                 </p>

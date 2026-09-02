@@ -89,16 +89,16 @@ export function ServiceTabs() {
                 <span className="block text-[15px] font-bold leading-tight">
                   {p.label}
                 </span>
-                <span
-                  className={cn(
-                    "mt-0.5 block text-xs leading-snug",
-                    isActive ? "text-white/80" : "text-navy-500",
-                  )}
-                >
-                  {p.slug === "residential" && "Houses & apartments"}
-                  {p.slug === "piano-spa" && "Pianos, spas & heavy items"}
-                  {p.slug === "commercial" && "Offices & workplaces"}
-                </span>
+                {p.slug === "piano-spa" && (
+                  <span
+                    className={cn(
+                      "mt-0.5 block text-xs leading-snug",
+                      isActive ? "text-white/80" : "text-navy-500",
+                    )}
+                  >
+                    Pianos, spas &amp; heavy items
+                  </span>
+                )}
               </span>
             </button>
           );
