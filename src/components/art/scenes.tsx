@@ -315,7 +315,7 @@ export function CoverageScene({ className }: { className?: string }) {
   return (
     <Frame
       className={className}
-      label="A stylised map of Auckland showing the South and West Auckland depots either side of the harbour"
+      label="A stylised map of Auckland showing depots either side of the harbour"
     >
       <rect width={W} height={H} fill={glass} opacity={0.5} />
 

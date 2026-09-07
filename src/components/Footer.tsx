@@ -85,14 +85,7 @@ export function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm">
               {aucklandRegions.map((region) => (
-                <li key={region.name} className="flex items-center gap-2">
-                  <span>{region.name}</span>
-                  {region.depot && (
-                    <span className="rounded bg-brand-500/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-300">
-                      Depot
-                    </span>
-                  )}
-                </li>
+                <li key={region.name}>{region.name}</li>
               ))}
             </ul>
             <Link

@@ -6,8 +6,9 @@ import { ServiceTabs } from "@/components/ServiceTabs";
 import { TestimonialsSection } from "@/components/Testimonials";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBanner } from "@/components/CtaBanner";
+import { StickyRating } from "@/components/StickyRating";
 import { CheckIcon, PhoneIcon, PinIcon, ArrowIcon } from "@/components/Icons";
-import { LoadingScene, CrewScene } from "@/components/art/scenes";
+import { LoadingScene } from "@/components/art/scenes";
 
 import { site, credentials } from "@/config/site";
 import { faqsFor } from "@/config/faqs";
@@ -19,25 +20,6 @@ export const metadata: Metadata = {
   description: defaultMeta.description,
   alternates: { canonical: "/" },
 };
-
-const whyUs = [
-  {
-    title: "A family business, not a franchise",
-    body: "Graeme runs this company with his wife Carolyn, and still rings customers after the move to check how it went. You are dealing with the owners.",
-  },
-  {
-    title: "Crews who are actually ours",
-    body: "Trained, uniformed team members on a career path with us — several are working toward becoming owner-drivers. No day-labour hires meeting your furniture for the first time.",
-  },
-  {
-    title: "Specialist gear for specialist loads",
-    body: "Pianos, spa pools and pool tables need purpose-built trucks, skates and gantries. We have them, because this is where our family started.",
-  },
-  {
-    title: "Fixed quotes, in writing",
-    body: "You get a firm number before the day, not an hourly rate and a nasty surprise. If something changes, we tell you before we do it.",
-  },
-];
 
 export default function HomePage() {
   const faqs = faqsFor("all");
@@ -73,8 +55,11 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-100">
-                For 30 years, our family-owned business has successfully moved
-                Aucklanders into their new homes and offices.
+                {credentials.yearsExperience}+ years of moving experience. Our
+                family-owned business has successfully moved Aucklanders into
+                their new homes and offices. We understand what many moving
+                companies don&apos;t, so when you move with us you get our minds
+                as well as our muscles.
               </p>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -133,73 +118,7 @@ export default function HomePage() {
       {/* ── Three service pillars ────────────────────────────────────────── */}
       <Section id="services">
         <Container>
-          <SectionHeading
-            align="center"
-            title="How can we help with your next move"
-            lede="To keep it simple, choose a service below"
-          />
-          <div className="mt-12">
-            <ServiceTabs />
-          </div>
-        </Container>
-      </Section>
-
-      {/* ── The family story ─────────────────────────────────────────────── */}
-      <Section tone="tint">
-        <Container>
-          <div className="mb-14 overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
-            <CrewScene className="aspect-[16/9] w-full lg:aspect-[2.8/1]" />
-          </div>
-
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <SectionHeading
-                eyebrow="Our story"
-                title="It started with a piano and an Uncle called Fats"
-              />
-              <div className="mt-6 space-y-4 leading-relaxed text-navy-700">
-                <p>
-                  Graeme Fatialofa learned this trade the hard way — moving pianos
-                  alongside his Uncle, the late Peter &ldquo;Fats&rdquo; Fatialofa,
-                  the Samoan rugby captain who was as well known around Auckland
-                  for his moving trucks as he was for his front row.
-                </p>
-                <p>
-                  What Graeme took from those years was simple enough: brute force
-                  is how things get broken. Moving well is mind and muscle
-                  together — reading the doorway, the driveway and the staircase
-                  before you pick anything up.
-                </p>
-                <p>
-                  Thirty years on, he runs the company with his wife Carolyn,
-                  the crews are trained in-house, and the phone call after your
-                  move to check everything went well still comes from Graeme
-                  himself.
-                </p>
-              </div>
-              <Link
-                href="/about"
-                className="mt-7 inline-flex items-center gap-2 font-semibold text-navy-900 hover:text-brand-600"
-              >
-                More about the family and the team
-                <ArrowIcon className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {whyUs.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-xl border border-navy-100 bg-navy-50 p-5"
-                >
-                  <h3 className="font-bold text-navy-950">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-navy-600">
-                    {item.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ServiceTabs />
         </Container>
       </Section>
 
@@ -212,23 +131,16 @@ export default function HomePage() {
                 tone="light"
                 eyebrow="Where we work"
                 title="All of Auckland — and a good way beyond it"
-                lede="Two depots mean a truck is rarely far away. We cover every Auckland suburb, and we run regular relocations out of town."
+                lede="We cover every Auckland suburb, and we run regular relocations out of town."
               />
-              <div className="mt-8 space-y-3">
-                {site.depots.map((depot) => (
-                  <div
-                    key={depot.region}
-                    className="flex items-start gap-3 rounded-xl border border-navy-700 bg-navy-800/60 p-4"
-                  >
-                    <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
-                    <div>
-                      <p className="font-bold text-white">
-                        {depot.region} depot
-                      </p>
-                      <p className="mt-0.5 text-sm text-navy-200">{depot.note}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="mt-8 flex items-start gap-3 rounded-xl border border-navy-700 bg-navy-800/60 p-4">
+                <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
+                <div>
+                  <p className="font-bold text-white">Auckland-wide depots</p>
+                  <p className="mt-0.5 text-sm text-navy-200">
+                    A truck is never far from your door, anywhere in Auckland
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -236,14 +148,7 @@ export default function HomePage() {
               <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
                 {aucklandRegions.map((region) => (
                   <div key={region.name}>
-                    <h3 className="flex items-center gap-2 font-bold text-white">
-                      {region.name}
-                      {region.depot && (
-                        <span className="rounded bg-brand-500/20 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-300">
-                          Depot
-                        </span>
-                      )}
-                    </h3>
+                    <h3 className="font-bold text-white">{region.name}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-navy-200">
                       {region.suburbs.slice(0, 6).join(" · ")}
                     </p>
@@ -287,6 +192,9 @@ export default function HomePage() {
       </Section>
 
       <CtaBanner context="home_bottom" />
+
+      {/* Tere's ask: the 4.9 rating stays on screen as you scroll. */}
+      <StickyRating />
 
       <JsonLd data={faqSchema(faqs)} />
     </>

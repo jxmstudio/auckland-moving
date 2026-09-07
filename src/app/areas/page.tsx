@@ -5,13 +5,12 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { PinIcon, TruckIcon } from "@/components/Icons";
 import { CoverageScene } from "@/components/art/scenes";
 import { aucklandRegions, outOfTown, outOfTownNote } from "@/config/areas";
-import { site } from "@/config/site";
 import { breadcrumbSchema } from "@/config/seo";
 
 export const metadata: Metadata = {
   title: "Areas We Cover | Movers Across Auckland",
   description:
-    "We move homes and offices across every Auckland suburb from depots in South and West Auckland, plus out-of-town relocations to Hamilton, Mangawhai and beyond.",
+    "We move homes and offices across every Auckland suburb from our Auckland-wide depots, plus out-of-town relocations to Hamilton, Mangawhai and beyond.",
   alternates: { canonical: "/areas" },
 };
 
@@ -25,12 +24,12 @@ export default function AreasPage() {
               Areas we cover
             </p>
             <h1 className="text-4xl font-extrabold text-navy-950 sm:text-5xl">
-              All of Auckland, from two depots
+              All of Auckland, covered
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-navy-700">
-              Bases in South Auckland and West Auckland mean shorter runs to your
-              door and less time on the clock. We cover every Auckland suburb, and
-              we regularly head out of town.
+              Auckland-wide depots mean shorter runs to your door and less time
+              on the clock. We cover every Auckland suburb, and we regularly
+              head out of town.
             </p>
           </div>
         </Container>
@@ -42,22 +41,19 @@ export default function AreasPage() {
           <div className="mb-6 overflow-hidden rounded-2xl border border-navy-100 shadow-sm">
             <CoverageScene className="aspect-[16/9] w-full lg:aspect-[2.6/1]" />
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {site.depots.map((depot) => (
-              <div
-                key={depot.region}
-                className="rounded-2xl border-2 border-navy-900 bg-navy-900 p-7 text-white"
-              >
-                <div className="flex items-center gap-2.5">
-                  <PinIcon className="h-6 w-6 text-brand-400" />
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-400">
-                    Depot
-                  </p>
-                </div>
-                <h2 className="mt-3 text-2xl font-extrabold">{depot.region}</h2>
-                <p className="mt-2 leading-relaxed text-navy-100">{depot.note}</p>
-              </div>
-            ))}
+          <div className="rounded-2xl border-2 border-navy-900 bg-navy-900 p-7 text-white">
+            <div className="flex items-center gap-2.5">
+              <PinIcon className="h-6 w-6 text-brand-400" />
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-400">
+                Depots
+              </p>
+            </div>
+            <h2 className="mt-3 text-2xl font-extrabold">
+              Auckland-wide depots
+            </h2>
+            <p className="mt-2 leading-relaxed text-navy-100">
+              Wherever you are in Auckland, a truck is never far from your door.
+            </p>
           </div>
         </Container>
       </Section>
@@ -76,14 +72,7 @@ export default function AreasPage() {
                 key={region.name}
                 className="rounded-2xl border border-navy-100 bg-white p-6 shadow-sm"
               >
-                <h3 className="flex items-center gap-2 text-lg font-bold text-navy-950">
-                  {region.name}
-                  {region.depot && (
-                    <span className="rounded bg-brand-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-700">
-                      Depot
-                    </span>
-                  )}
-                </h3>
+                <h3 className="text-lg font-bold text-navy-950">{region.name}</h3>
                 <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1.5 text-sm text-navy-600">
                   {region.suburbs.map((suburb) => (
                     <li key={suburb} className="after:ml-2 after:text-navy-300 after:content-['·'] last:after:content-['']">

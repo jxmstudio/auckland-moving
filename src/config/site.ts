@@ -65,11 +65,6 @@ export const site = {
     url: "https://fatsboysltd.co.nz",
   },
 
-  depots: [
-    { region: "South Auckland", note: "Serving Manukau, Papakura, Franklin and the southern corridor" },
-    { region: "West Auckland", note: "Serving Waitākere, Henderson, Massey and the north-west" },
-  ],
-
   hours: {
     weekdays: "Mon – Fri, 7:00am – 6:00pm",
     saturday: "Saturday, 8:00am – 4:00pm",

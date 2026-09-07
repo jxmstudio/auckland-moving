@@ -10,7 +10,6 @@
 export const aucklandRegions = [
   {
     name: "South Auckland",
-    depot: true,
     suburbs: [
       "Manukau", "Papakura", "Pukekohe", "Botany", "Howick", "Ōtāhuhu",
       "Māngere", "Papatoetoe", "Takanini", "Franklin",
@@ -18,7 +17,6 @@ export const aucklandRegions = [
   },
   {
     name: "West Auckland",
-    depot: true,
     suburbs: [
       "Henderson", "Te Atatū", "Massey", "New Lynn", "Titirangi", "Glen Eden",
       "Kumeū", "Swanson", "Hobsonville", "Westgate",
@@ -26,7 +24,6 @@ export const aucklandRegions = [
   },
   {
     name: "Central Auckland",
-    depot: false,
     suburbs: [
       "Ponsonby", "Grey Lynn", "Mount Eden", "Epsom", "Remuera", "Newmarket",
       "Parnell", "Mount Albert", "Onehunga", "Ellerslie",
@@ -34,7 +31,6 @@ export const aucklandRegions = [
   },
   {
     name: "North Shore",
-    depot: false,
     suburbs: [
       "Takapuna", "Devonport", "Albany", "Browns Bay", "Milford", "Glenfield",
       "Birkenhead", "Northcote", "Silverdale", "Orewa",
@@ -42,7 +38,6 @@ export const aucklandRegions = [
   },
   {
     name: "East Auckland",
-    depot: false,
     suburbs: [
       "Bucklands Beach", "Pakuranga", "Half Moon Bay", "Beachlands",
       "Whitford", "Dannemora", "Flat Bush", "Mission Bay", "St Heliers", "Kohimarama",
