@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Container, Section, SectionHeading, JsonLd } from "@/components/ui";
 import { CtaBanner } from "@/components/CtaBanner";
-import { PinIcon, TruckIcon } from "@/components/Icons";
+import { PinIcon, TruckIcon, ArrowIcon } from "@/components/Icons";
 import { CoverageScene } from "@/components/art/scenes";
 import { aucklandRegions, outOfTown, outOfTownNote } from "@/config/areas";
 import { breadcrumbSchema } from "@/config/seo";
@@ -80,6 +81,13 @@ export default function AreasPage() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href={`/areas/${region.slug}`}
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-900 hover:text-brand-600"
+                >
+                  {region.name} movers
+                  <ArrowIcon className="h-4 w-4" />
+                </Link>
               </div>
             ))}
           </div>

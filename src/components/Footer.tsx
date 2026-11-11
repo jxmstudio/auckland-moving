@@ -85,7 +85,11 @@ export function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm">
               {aucklandRegions.map((region) => (
-                <li key={region.name}>{region.name}</li>
+                <li key={region.name}>
+                  <Link href={`/areas/${region.slug}`} className="hover:text-white">
+                    {region.name}
+                  </Link>
+                </li>
               ))}
             </ul>
             <Link

@@ -36,10 +36,15 @@ import { testimonials } from "./testimonials";
 import type { Faq } from "./faqs";
 
 export const defaultMeta = {
-  /* Kept under ~60 chars so Google doesn't truncate it in results. */
-  title: `${site.name} | House & Office Movers`,
+  /*
+    Kept under ~60 chars so Google doesn't truncate it in results.
+    Leads with the money query — "moving company Auckland" — because the title
+    tag is the strongest on-page relevance signal for it; the brand name then
+    reinforces "Auckland moving" a second time without reading as stuffing.
+  */
+  title: `Moving Company Auckland | ${site.name}`,
   /* Kept under ~160 chars so Google shows the whole thing. */
-  description: `Auckland movers with ${credentials.yearsExperience}+ years' experience and ${credentials.propertiesMoved.toLocaleString()}+ properties moved. Homes, offices, pianos and spa pools. Free written quote.`,
+  description: `Family-owned Auckland moving company. ${credentials.yearsExperience}+ years, ${credentials.propertiesMoved.toLocaleString()}+ properties moved. House, office, piano & spa pool movers rated ${credentials.googleRating}★ on Google. Free written quote.`,
 };
 
 /** LocalBusiness / MovingCompany schema for the site root. */
@@ -55,6 +60,22 @@ export function organisationSchema() {
     email: site.email,
     description: defaultMeta.description,
     slogan: site.tagline,
+    logo: `${site.url}/brand/logo-square.jpg`,
+    image: [`${site.url}/brand/og.png`, `${site.url}/brand/logo-square.jpg`],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "07:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "08:00",
+        closes: "16:00",
+      },
+    ],
     foundingDate: String(new Date().getFullYear() - credentials.yearsExperience),
     telephone: site.phones.sales.tel,
     priceRange: "$$",

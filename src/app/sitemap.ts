@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/config/site";
 import { servicePillars } from "@/config/services";
+import { aucklandRegions } from "@/config/areas";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -26,6 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       /* Residential carries half the business, so it leads the service pages. */
       priority: pillar.slug === "residential" ? 0.9 : 0.8,
+    })),
+    ...aucklandRegions.map((region) => ({
+      url: `${site.url}/areas/${region.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 }

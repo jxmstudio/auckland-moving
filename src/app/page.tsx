@@ -50,8 +50,13 @@ export default function HomePage() {
                 </Pill>
               </div>
 
+              {/*
+                "Auckland" added for SEO — the H1 is the second-strongest
+                on-page signal after the title tag, and without it the page's
+                main heading says nothing about where we operate.
+              */}
               <h1 className="text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-                Fatialofa Family — for all your moving needs
+                Fatialofa Family — for all your Auckland moving needs
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-100">
@@ -177,6 +182,70 @@ export default function HomePage() {
       </Section>
 
       <TestimonialsSection />
+
+      {/* ── Why us (SEO copy block) ──────────────────────────────────────────
+          The one place on the homepage that says, in crawlable prose, what we
+          are ("moving company in Auckland") and links every page we want
+          ranking — service pillars and region pages. Written for a human
+          reading it, which is also what Google rewards. */}
+      <Section>
+        <Container className="max-w-4xl">
+          <SectionHeading
+            eyebrow="Why Auckland moves with us"
+            title="A moving company Aucklanders have trusted for 30 years"
+          />
+          <div className="mt-8 space-y-5 leading-relaxed text-navy-700">
+            <p>
+              There are plenty of moving companies in Auckland. What sets us
+              apart is thirty years of doing only this, as one family, across
+              more than {credentials.propertiesMoved.toLocaleString()} moves.
+              Our crews handle{" "}
+              <Link href="/services/residential" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                house moves
+              </Link>
+              ,{" "}
+              <Link href="/services/commercial" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                office relocations
+              </Link>{" "}
+              and the{" "}
+              <Link href="/services/piano-spa" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                piano, spa pool and heavy specialist moves
+              </Link>{" "}
+              most Auckland movers turn down — with the purpose-built gear and
+              the training to do them properly.
+            </p>
+            <p>
+              We&apos;re local everywhere in Auckland: from the{" "}
+              <Link href="/areas/north-shore" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                North Shore
+              </Link>{" "}
+              to{" "}
+              <Link href="/areas/south-auckland" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                South Auckland
+              </Link>
+              ,{" "}
+              <Link href="/areas/west-auckland" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                out west
+              </Link>
+              ,{" "}
+              <Link href="/areas/east-auckland" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                out east
+              </Link>{" "}
+              and across the{" "}
+              <Link href="/areas/central-auckland" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                central suburbs
+              </Link>
+              . Rated {credentials.googleRating}★ from{" "}
+              {credentials.googleReviewCount}{" "}
+              <Link href="/reviews" className="font-semibold text-navy-900 underline underline-offset-2 hover:text-brand-600">
+                Google reviews
+              </Link>
+              , every move gets a fixed written quote, a move manager, and a
+              uniformed crew that turns up when we said we would.
+            </p>
+          </div>
+        </Container>
+      </Section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
       <Section>
